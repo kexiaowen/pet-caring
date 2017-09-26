@@ -2,11 +2,11 @@
 * Specifies the schema for the project
 */
 
-CREATE TABLE user (
+CREATE TABLE account (
 	name VARCHAR(64) NOT NULL,
 	email VARCHAR(355) PRIMARY KEY,
 	password VARCHAR(50) NOT NULL,
-	region CHECK (region = 'North' OR region = 'South' OR region ='East' OR region = 'West'),
+	region CHECK (region = 'North' OR region = 'South' OR region = 'East' OR region = 'West'),
 	address VARCHAR(355),
 	postal_code CHAR(6)
 );
@@ -18,7 +18,7 @@ CREATE TABLE pet (
 	species VARCHAR(64),
 	dob DATE NOT NULL,
 	size VARCHAR(10) CHECK (size = 'small' OR size = 'medium' OR size = 'large' OR size = 'giant'),
-	owner REFERENCES user(email) ON UPDATE CASCADE ON DELETE CASCADE,
+	owner REFERENCES account(email) ON UPDATE CASCADE ON DELETE CASCADE,
 	PRIMARY KEY (pet_name, owner) 
 );
 
@@ -27,7 +27,7 @@ CREATE TABLE availability (
 	end_date DATE NOT NULL,
 	type_of_pet VARCHAR(32) NOT NULL,
 	CONSTRAINT validType CHECK (type = 'dog' OR type = 'cat' OR type = 'hamster' OR type = 'rabbit' OR type = 'bird'),
-	caretaker REFERENCES user(email) ON UPDATE CASCADE ON DELETE CASCADE,
+	caretaker REFERENCES account(email) ON UPDATE CASCADE ON DELETE CASCADE,
 	min_bid integer NOT NULL,
 	acceptedBid boolean,
 	remark TEXT,
