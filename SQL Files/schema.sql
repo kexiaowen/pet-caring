@@ -43,3 +43,5 @@ CREATE TABLE bid (
 	FOREIGN KEY (caretaker, start_date, end_date) REFERENCES availability(caretaker, start_date, end_date) ON UPDATE CASCADE ON DELETE CASCADE,
 	PRIMARY KEY (bidder, caretaker, start_date, end_date)
 );
+
+SET datestyle = "ISO, YMD";
