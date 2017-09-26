@@ -1,0 +1,3 @@
+/**
+* Inserts data for bids
+*/
