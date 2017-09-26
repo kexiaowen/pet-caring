@@ -18,7 +18,7 @@ CREATE TABLE pet (
 	species VARCHAR(64),
 	dob DATE NOT NULL,
 	size VARCHAR(10) CHECK (size = 'small' OR size = 'medium' OR size = 'large' OR size = 'giant'),
-	owner ﻿VARCHAR(355) REFERENCES account(email) ON UPDATE CASCADE ON DELETE CASCADE,
+	owner VARCHAR(355) REFERENCES account(email) ON UPDATE CASCADE ON DELETE CASCADE,
 	PRIMARY KEY (pet_name, owner) 
 );
 
