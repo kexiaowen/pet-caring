@@ -18,8 +18,6 @@
     <li><input type="text" name="caretaker_updated" /></li>
     <li>Minimum bid:</li>
     <li><input type="text" name="min_bid_updated" /></li>
-    <li>Accepted bid (true/false):</li>
-    <li><input type="boolean" name="accepted_bid_updated" /></li>
     <li>Remark:</li>
     <li><input type="text" name="remark_updated" /></li>
     <li><input type="submit" name="submitadd" /></li>
@@ -38,7 +36,7 @@
                   '$_POST[type_of_pet_updated]',
                   '$_POST[caretaker_updated]',
                   '$_POST[min_bid_updated]',
-                  '$_POST[accepted_bid_updated]',
+                  'false',
                   '$_POST[remark_updated]')";
       $result = pg_query($db, $query)
                   or die('Add query failed: ' . pg_last_error($db));
