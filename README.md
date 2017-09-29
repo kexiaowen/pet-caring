@@ -3,9 +3,9 @@
 ## Table of Contents
 - [Project Requirements](#project-requirements)
 - [Instructions](#instructions)
-- [Appendix 1: Branching Workflow](#appendix-1:--branching-workflow)
-- [Appendix 2: Common Terminal Commands](#appendix-2:--common-terminal-commands)
-- [Appendix 3: Common Git Commands](#appendix-3:--common-git-commands)
+- [Appendix 1: Branching Workflow](#appendix-1--branching-workflow)
+- [Appendix 2: Common Terminal Commands](#appendix-2--common-terminal-commands)
+- [Appendix 3: Common Git Commands](#appendix-3--common-git-commands)
 
 ## Project Requirements
 
@@ -17,7 +17,7 @@ Replace the `petcaring` folder in your local `mappstack`. Restart the server usi
 
 Note that to see other sites at the current moment, such as the `search` site, you have to manually proceed to `localhost:8080/petcaring/` since routing has not quite been done yet.
 
-## Appendix 1: Git Basics
+## Appendix 1: Branching Workflow
 
 This project uses a branching workflow, which essentially means that we should create a new branch every time we start work on a new feature/component.
 
