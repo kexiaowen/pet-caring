@@ -2,10 +2,10 @@
 
 ## Table of Contents
 - [Project Requirements](#project-requirements)
-- [Instructions](#instructions----how-to-run-the-code)
-- [Appendix 1: Branching Workflow](#appendix-1--branching-workflow)
-- [Appendix 2: Common Terminal Commands](#appendix-2--common-terminal-commands)
-- [Appendix 3: Common Git Commands](#appendix-3--common-git-commands)
+- [Instructions](#instructions)
+- [Appendix 1: Branching Workflow](#appendix-1:--branching-workflow)
+- [Appendix 2: Common Terminal Commands](#appendix-2:--common-terminal-commands)
+- [Appendix 3: Common Git Commands](#appendix-3:--common-git-commands)
 
 ## Project Requirements
 
