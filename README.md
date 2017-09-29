@@ -15,7 +15,11 @@ The system allows pet owners to search for care takers for their pet when they g
 
 Replace the `petcaring` folder in your local `mappstack`. Restart the server using `manager-osx` or Terminal, and go to `localhost:8080/petcaring` to see the site.
 
-Note that to see other sites at the current moment, such as the `search` site, you have to manually proceed to `localhost:8080/petcaring/` since routing has not quite been done yet.
+Note that to see other sites at the current moment, such as the `search` site, you have to manually proceed to `localhost:8080/petcaring/<fileName>` since routing has not quite been done yet.
+
+To test for `add`, use `pgAdmin 4` to visually check the data. Otherwise, use `search` to check for the data.
+
+Remember to change the name of the database and the password!!
 
 ## Appendix 1: Branching Workflow
 
