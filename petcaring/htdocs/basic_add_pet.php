@@ -7,7 +7,7 @@
 
 <body>
 
-  <form id="add_pet" action="add_pet.php" method="post">
+  <form id="add_pet" action="basic_add_pet.php" method="post">
     <li>Pet name:</li>
     <li><input type="text" name="name_updated"/></li>
     <li>Type of pet (dog/cat/hamster/rabbit/bird):</li>

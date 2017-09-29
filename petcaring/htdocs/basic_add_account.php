@@ -7,7 +7,7 @@
 
 <body>
 
-  <form id="add_account" action="add_account.php" method="post">
+  <form id="basic_add_account" action="basic_add_account.php" method="post">
     <li>Name:</li>
     <li><input type="text" name="name_updated"/></li>
     <li>Email:</li>

@@ -7,7 +7,7 @@
 
 <body>
 
-  <form id="add_bid" action="add_bid.php" method="post">
+  <form id="add_bid" action="basic_add_bid.php" method="post">
     <li>Price (Integer):</li>
     <li><input type="number" name="price_updated"/></li>
     <li>Bidder (email): </li>

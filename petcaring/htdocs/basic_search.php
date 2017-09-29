@@ -5,7 +5,7 @@
   <style>li {list-style: none;}</style>
 </head>
 <body>
-  <form id="search" action="alphademo.php" method="post">
+  <form id="search" action="basic_search.php" method="post">
     <li>Start Date:</li>
     <li><input type="text" name="startdate"/></li>
     <li>End Date:</li>

@@ -7,7 +7,7 @@
 
 <body>
 
-  <form id="add_availability" action="add_availability.php" method="post">
+  <form id="add_availability" action="basic_add_availability.php" method="post">
     <li>Start date (YYYY-MM-DD):</li>
     <li><input type="text" name="start_date_updated"/></li>
     <li>End date (YYYY-MM-DD):</li>
