@@ -2,6 +2,11 @@
 * Specifies the schema for the project
 */
 
+DROP TABLE IF EXISTS bid;
+DROP TABLE IF EXISTS availability;
+DROP TABLE IF EXISTS pet;
+DROP TABLE IF EXISTS account;
+
 CREATE TABLE account (
 	name VARCHAR(64) NOT NULL,
 	email VARCHAR(355) PRIMARY KEY,
@@ -36,7 +41,7 @@ CREATE TABLE availability (
 
 CREATE TABLE bid (
 	price integer NOT NULL,
-	bidder VARCHAR(355),
+	bidder VARCHAR(355) REFERENCES account(email) ON UPDATE CASCADE ON DELETE CASCADE,
 	caretaker VARCHAR(355),
 	start_date DATE,
 	end_date DATE,
