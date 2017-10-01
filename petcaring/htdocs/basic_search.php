@@ -6,6 +6,7 @@
 </head>
 <body>
   <form id="search" action="basic_search.php" method="post">
+
     <li>Start Date (YYYY-MM-DD):</li>
     <li><input type="text" name="start_date"/></li>
     <li>End Date (YYYY-MM-DD):</li>
@@ -59,7 +60,7 @@
             echo "<td align='center'>" .$address . "</td>";
             echo "<td align='center'>" .$min_bid . "</td>";
           echo "</tr>";
-    	}
+    	  }
       }
     ?>
   </table>
