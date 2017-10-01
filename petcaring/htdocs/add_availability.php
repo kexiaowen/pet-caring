@@ -57,7 +57,7 @@
       </div>
       <div class="row">
         <div class="col s4 offset-s4 center">
-          <button class="btn waves-effect waves-light light-blue lighten-2 center-align add-bid" type="submit" name="submitadd">Add bid
+          <button class="btn waves-effect waves-light light-blue lighten-2 center-align add-bid" type="submit" name="submitadd">Add availability
             <i class="material-icons right"></i>
           </button>
         </div>
