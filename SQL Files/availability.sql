@@ -108,3 +108,46 @@ INSERT INTO availability VALUES ('2015-09-24', '2015-09-27', 'hamster', 'jeffere
 INSERT INTO availability VALUES ('2015-10-09', '2015-10-09', 'hamster', 'jeffereyW@gmail.com', 10, FALSE);
 INSERT INTO availability VALUES ('2015-11-01', '2015-11-07', 'hamster', 'jeffereyW@gmail.com', 10, FALSE, 'actually i want parrots, not hamsters');
 INSERT INTO availability VALUES ('2015-11-16', '2015-11-22', 'hamster', 'jeffereyW@gmail.com', 10, FALSE);
+INSERT INTO availability VALUES ('2015-11-16', '2015-11-22', 'hamster', 'huanhui@gmail.com', 10, FALSE);
+INSERT INTO availability VALUES ('2016-12-16', '2016-12-20', 'hamster', 'huanhui@gmail.com', 10, FALSE);
+INSERT INTO availability VALUES ('2016-12-21', '2016-12-19', 'hamster', 'huanhui@gmail.com', 10, FALSE);
+INSERT INTO availability VALUES ('2017-01-16', '2017-01-08', 'hamster', 'huanhui@gmail.com', 10, FALSE);
+INSERT INTO availability VALUES ('2017-01-22', '2017-01-17', 'hamster', 'huanhui@gmail.com', 10, FALSE);
+
+INSERT INTO availability VALUES ('2015-01-03', '2015-01-18', 'hamster', 'vera@gmail.com', 10, FALSE);
+INSERT INTO availability VALUES ('2015-01-22', '2015-02-13', 'hamster', 'vera@gmail.com', 10, FALSE);
+INSERT INTO availability VALUES ('2015-03-17', '2015-04-01', 'hamster', 'vera@gmail.com', 10, FALSE);
+INSERT INTO availability VALUES ('2015-04-12', '2015-04-16', 'hamster', 'vera@gmail.com', 10, FALSE);
+INSERT INTO availability VALUES ('2015-04-22', '2015-04-25', 'hamster', 'vera@gmail.com', 10, FALSE);
+INSERT INTO availability VALUES ('2015-04-26', '2015-05-02', 'hamster', 'vera@gmail.com', 10, FALSE);
+INSERT INTO availability VALUES ('2015-05-19', '2015-05-19', 'hamster', 'vera@gmail.com', 10, FALSE);
+INSERT INTO availability VALUES ('2015-05-20', '2015-05-21', 'hamster', 'vera@gmail.com', 10, FALSE);
+INSERT INTO availability VALUES ('2015-06-04', '2015-06-09', 'hamster', 'vera@gmail.com', 10, FALSE);
+INSERT INTO availability VALUES ('2015-06-10', '2015-06-15', 'hamster', 'vera@gmail.com', 10, FALSE);
+INSERT INTO availability VALUES ('2015-06-16', '2015-06-20', 'hamster', 'vera@gmail.com', 10, FALSE);
+
+INSERT INTO availability VALUES ('2016-01-12', '2016-11-01', 'hamster', 'donaldChua@gmail.com', 10, FALSE, 'only nice hamsters');
+INSERT INTO availability VALUES ('2016-01-31', '2016-11-05', 'hamster', 'donaldChua@gmail.com', 10, FALSE, 'only nice hamsters');
+INSERT INTO availability VALUES ('2016-03-29', '2016-12-01', 'hamster', 'donaldChua@gmail.com', 10, FALSE, 'only nice hamsters');
+INSERT INTO availability VALUES ('2016-04-22', '2016-12-14', 'hamster', 'donaldChua@gmail.com', 10, FALSE, 'only nice hamsters');
+INSERT INTO availability VALUES ('2016-05-06', '2016-12-20', 'hamster', 'donaldChua@gmail.com', 10, FALSE, 'only nice hamsters');
+INSERT INTO availability VALUES ('2016-05-16', '2016-12-19', 'hamster', 'donaldChua@gmail.com', 10, FALSE, 'only nice hamsters');
+INSERT INTO availability VALUES ('2016-05-23', '2017-01-08', 'hamster', 'donaldChua@gmail.com', 10, FALSE, 'only nice hamsters');
+INSERT INTO availability VALUES ('2016-06-02', '2017-01-17', 'hamster', 'donaldChua@gmail.com', 10, FALSE, 'only nice hamsters');
+INSERT INTO availability VALUES ('2016-07-06', '2017-01-22', 'hamster', 'donaldChua@gmail.com', 10, FALSE, 'only nice hamsters');
+INSERT INTO availability VALUES ('2016-07-31', '2017-01-31', 'hamster', 'donaldChua@gmail.com', 10, FALSE, 'only nice hamsters');
+INSERT INTO availability VALUES ('2016-09-07', '2017-02-14', 'hamster', 'donaldChua@gmail.com', 10, FALSE, 'only nice hamsters');
+INSERT INTO availability VALUES ('2016-01-12', '2016-07-06', 'hamster', 'taylorGoh@gmail.com', 10, FALSE);
+INSERT INTO availability VALUES ('2016-01-31', '2016-07-31', 'hamster', 'taylorGoh@gmail.com', 10, FALSE);
+INSERT INTO availability VALUES ('2016-03-29', '2016-09-07', 'hamster', 'taylorGoh@gmail.com', 10, FALSE);
+INSERT INTO availability VALUES ('2016-04-22', '2016-10-03', 'hamster', 'taylorGoh@gmail.com', 10, FALSE);
+INSERT INTO availability VALUES ('2016-05-06', '2016-10-10', 'hamster', 'taylorGoh@gmail.com', 10, FALSE);
+INSERT INTO availability VALUES ('2016-05-16', '2016-11-04', 'hamster', 'taylorGoh@gmail.com', 10, FALSE);
+INSERT INTO availability VALUES ('2016-05-23', '2016-11-21', 'hamster', 'taylorGoh@gmail.com', 10, FALSE);
+INSERT INTO availability VALUES ('2016-06-02', '2016-12-03', 'hamster', 'taylorGoh@gmail.com', 10, FALSE);
+INSERT INTO availability VALUES ('2016-07-06', '2016-12-19', 'hamster', 'taylorGoh@gmail.com', 10, FALSE);
+INSERT INTO availability VALUES ('2016-07-31', '2016-12-16', 'hamster', 'taylorGoh@gmail.com', 10, FALSE);
+INSERT INTO availability VALUES ('2016-09-07', '2016-12-21', 'hamster', 'taylorGoh@gmail.com', 10, FALSE);
+
+INSERT INTO availability VALUES ('2015-05-05', '2015-05-06', 'bird', 'JessicaYong@gmail.com', 10, FALSE);
+INSERT INTO availability VALUES ('2016-04-22', '2016-04-26', 'dog', 'chenYong@gmail.com', 10, FALSE);
