@@ -23,7 +23,7 @@
 
   <?php
       // Connect to the database -- remember to change the db name and password accordingly!!
-      $db     = pg_connect("host=localhost port=5432 dbname=petcaring user=postgres password=123beanbong")
+      $db     = pg_connect("host=localhost port=5432 dbname=petcaring user=postgres password=xujun0710")
                   or die('Could not connect: ' . pg_last_error($db));
 
       // Add account function
