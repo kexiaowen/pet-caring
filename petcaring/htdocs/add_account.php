@@ -52,7 +52,7 @@
           <input class="w3-input w3-border" type="text" placeholder = " Your address here" name="address">
         </div>
         <div class="col s4">
-          <p><label><i class="fa fa-postal-code"></i> Maximum bid:</label></p>
+          <p><label><i class="fa fa-postal-code"></i> Postal code:</label></p>
           <input class="w3-input w3-border" type="number" placeholder = " 6-digits postal code" name="postal_code">
         </div>
 
