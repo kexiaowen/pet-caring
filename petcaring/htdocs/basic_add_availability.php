@@ -9,17 +9,17 @@
 
   <form id="add_availability" action="basic_add_availability.php" method="post">
     <li>Start date (YYYY-MM-DD):</li>
-    <li><input type="text" name="start_date_updated"/></li>
+    <li><input type="text" name="start_date"/></li>
     <li>End date (YYYY-MM-DD):</li>
-    <li><input type="text" name="end_date_updated" /></li>
+    <li><input type="text" name="end_date" /></li>
     <li>Type of pet (dog/cat/hamster/rabbit/bird):</li>
-    <li><input type="text" name="type_of_pet_updated" /></li>
+    <li><input type="text" name="type_of_pet" /></li>
     <li>Caretaker (email):</li>
-    <li><input type="text" name="caretaker_updated" /></li>
+    <li><input type="text" name="caretaker" /></li>
     <li>Minimum bid:</li>
-    <li><input type="text" name="min_bid_updated" /></li>
+    <li><input type="text" name="min_bid" /></li>
     <li>Remark:</li>
-    <li><input type="text" name="remark_updated" /></li>
+    <li><input type="text" name="remark" /></li>
     <li><input type="submit" name="submitadd" /></li>
   </form>
 
@@ -31,13 +31,13 @@
       // Add account function
       if (isset($_POST['submitadd'])) {
       $query = "INSERT INTO availability VALUES(
-                  '$_POST[start_date_updated]',
-                  '$_POST[end_date_updated]',
-                  '$_POST[type_of_pet_updated]',
-                  '$_POST[caretaker_updated]',
-                  '$_POST[min_bid_updated]',
+                  '$_POST[start_date]',
+                  '$_POST[end_date]',
+                  '$_POST[type_of_pet]',
+                  '$_POST[caretaker]',
+                  '$_POST[min_bid]',
                   'false',
-                  '$_POST[remark_updated]')";
+                  '$_POST[remark]')";
       $result = pg_query($db, $query)
                   or die('Add query failed: ' . pg_last_error($db));
 

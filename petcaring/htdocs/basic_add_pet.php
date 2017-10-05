@@ -9,17 +9,17 @@
 
   <form id="add_pet" action="basic_add_pet.php" method="post">
     <li>Pet name:</li>
-    <li><input type="text" name="name_updated"/></li>
+    <li><input type="text" name="name"/></li>
     <li>Type of pet (dog/cat/hamster/rabbit/bird):</li>
-    <li><input type="text" name="type_updated" /></li>
+    <li><input type="text" name="type_of_pet" /></li>
     <li>Species:</li>
-    <li><input type="text" name="species_updated" /></li>
+    <li><input type="text" name="species" /></li>
     <li>D.O.B.(YYYY-MM-DD):</li>
-    <li><input type="text" name="dob_updated" /></li>
+    <li><input type="text" name="dob" /></li>
     <li>Size (small/medium/large/giant):</li>
-    <li><input type="text" name="size_updated" /></li>
+    <li><input type="text" name="size" /></li>
     <li>Owner (email):</li>
-    <li><input type="text" name="owner_updated" /></li>
+    <li><input type="text" name="owner" /></li>
     <li><input type="submit" name="submitadd" /></li>
   </form>
 
@@ -31,12 +31,12 @@
       // Add account function
       if (isset($_POST['submitadd'])) {
       $query = "INSERT INTO pet VALUES(
-                  '$_POST[name_updated]',
-                  '$_POST[type_updated]',
-                  '$_POST[species_updated]',
-                  '$_POST[dob_updated]',
-                  '$_POST[size_updated]',
-                  '$_POST[owner_updated]')";
+                  '$_POST[name]',
+                  '$_POST[type_of_pet]',
+                  '$_POST[species]',
+                  '$_POST[dob]',
+                  '$_POST[size]',
+                  '$_POST[owner]')";
       $result = pg_query($db, $query)
                   or die('Add query failed: ' . pg_last_error($db));
 
