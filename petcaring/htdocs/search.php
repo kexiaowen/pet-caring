@@ -16,9 +16,9 @@
   <nav class="light-blue lighten-1" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Pet Caring</a>
       <ul class="right">
-        <li><a href="index.php">Home</a></li>
-        <li><a href="login.php">Log in</a></li>
-        <li><a href="signup.php">Sign up</a></li>
+        <li><a href="/petcaring/index.php">Home</a></li>
+        <li><a href="/petcaring/login.php">Log in</a></li>
+        <li><a href="/petcaring/signup.php">Sign up</a></li>
       </ul>
     </div>
   </nav>
@@ -26,7 +26,7 @@
   <h3 class="light-blue-text text-lighten-1 center header-padding">Find a caretaker</h3>
 
   <div class="w3-container w3-display-container">
-    <form id="search" action="basic_search.php" method="post">
+    <form id="search" action="search.php" method="post">
       <div class="row">
         <div class="col s4">
           <p><label><i class="fa fa-calendar-check-o"></i> Start Date (YYYY-MM-DD):</label></p>
