@@ -16,9 +16,9 @@
   <nav class="light-blue lighten-1" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Pet Caring</a>
       <ul class="right">
-        <li><a href="index.php">Home</a></li>
-        <li><a href="login.php">Log in</a></li>
-        <li><a href="signup.php">Sign up</a></li>
+        <li><a href="/petcaring/index.php">Home</a></li>
+        <li><a href="/petcaring/login.php">Log in</a></li>
+        <li><a href="/petcaring/signup.php">Sign up</a></li>
       </ul>
     </div>
   </nav>
@@ -31,8 +31,11 @@
         <div class="row center">
           <h5 class="header col s12 light grey-text lighten-3">The nation’s largest network of pet sitters</h5>
         </div>
+         <div class="row center">
+          <a href="/petcaring/search.php" id="download-button" class="btn-large waves-effect waves-light light-blue lighten-1">Find a pet carer</a>
+        </div>
         <div class="row center">
-          <a href="#" id="download-button" class="btn-large waves-effect waves-light light-blue lighten-1">Get Started</a>
+          <a href="/petcaring/add_availability.php" id="download-button" class="btn-large waves-effect waves-light light-blue lighten-1">Be a pet carer</a>
         </div>
         <br><br>
 
