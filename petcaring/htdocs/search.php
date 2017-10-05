@@ -84,7 +84,7 @@
 
     <?php
       // Connect to the database
-      $db     = pg_connect("host=localhost port=5432 dbname=Project1 user=postgres password=361023")
+      $db     = pg_connect("host=localhost port=5432 dbname=Project1 user=postgres password=xujun0710")
                   or die('Could not connect: ' . pg_last_error($db));;
       if (isset($_POST['submit'])) {
         $query = "SELECT acc.name, acc.region, acc.address, avail.min_bid
