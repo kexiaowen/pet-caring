@@ -2,10 +2,10 @@
 * Specifies the schema for the project
 */
 
-DROP TABLE IF EXISTS bid;
-DROP TABLE IF EXISTS availability;
-DROP TABLE IF EXISTS pet;
-DROP TABLE IF EXISTS account;
+DROP TABLE IF EXISTS bid CASCADE;
+DROP TABLE IF EXISTS availability CASCADE;
+DROP TABLE IF EXISTS pet CASCADE;
+DROP TABLE IF EXISTS account CASCADE;
 
 CREATE TABLE account (
 	name VARCHAR(64) NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE pet (
 	dob DATE NOT NULL,
 	size VARCHAR(10) CHECK (size = 'small' OR size = 'medium' OR size = 'large' OR size = 'giant'),
 	owner VARCHAR(355) REFERENCES account(email) ON UPDATE CASCADE ON DELETE CASCADE,
-	PRIMARY KEY (pet_name, owner) 
+	PRIMARY KEY (pet_name, owner)
 );
 
 CREATE TABLE availability (
