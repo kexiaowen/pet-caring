@@ -1,0 +1,17 @@
+/*
+* Style sheet for search page.
+*/
+.card.horizontal {
+    font-family: "Futura Medium", "Trebuchet MS", Arial, sans-serif;
+}
+
+.card.horizontal .card-image {
+  max-width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card.horizontal .card-image img {
+    border-radius: 50%;
+}
