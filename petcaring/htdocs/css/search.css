@@ -1,6 +1,11 @@
 /*
 * Style sheet for search page.
 */
+#card-container {
+    overflow-y: scroll;
+    height: 350px; 
+}
+
 .card.horizontal {
     font-family: "Futura Medium", "Trebuchet MS", Arial, sans-serif;
 }
