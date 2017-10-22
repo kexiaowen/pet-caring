@@ -3,7 +3,8 @@
   $db = pg_connect("host=localhost port=5432 dbname=petcaring user=postgres password=123beanbong")
           or die('Could not connect: ' . pg_last_error($db));
 
-  if (isset($_POST['start_date'], $_POST['end_date'], $_POST['type_of_pet'], $_POST[max_bid])) {
+  if (isset($_POST['start_date'], $_POST['end_date'], $_POST['type_of_pet'], $_POST[max_bid]) &&
+        $_POST['start_date'] !== "" && $_POST['end_date'] !== "" && $_POST[max_bid] !== "") {
     $formatted_start_date = date_format(date_create($_POST[start_date]), 'Y-m-d');
     $formatted_end_date = date_format(date_create($_POST[end_date]), 'Y-m-d');
     $query = "SELECT acc.name, acc.region, acc.address, avail.min_bid
