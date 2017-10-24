@@ -83,8 +83,8 @@
     <div class="card-image">
       <img src="img/penguin.png" class="circle">
     </div>
-    <div class="card-stacked">
-      <div class="card-content row">
+    <div class="card-stacked row">
+      <div class="card-content">
         <div class="col s6">
           <p name="name">Name:</p>
           <p name="region">Region:</p>
@@ -93,13 +93,13 @@
         </div>
         <div class="col s6">
           <p name="min_bid">Mininum bid required:</p>
-          <p>Your bid:
-            <i class="fa fa-dollar"></i>
-          </p>
-          <input class="w3-border" type="text" name="submitted_bid">
-          <span style="display: flex; flex-direction: row-reverse">
-            <a class="waves-effect waves-light btn">Add bid</a>
-          </span>
+          <div id="add-bid">
+            <p class="col s3">Your bid: <i class="fa fa-dollar"></i></p>
+            <input class="col s3 w3-border" type="text" name="submitted_bid">
+          </div>
+        </div>
+        <div id="add-bid-btn">
+          <a class="waves-effect waves-light btn">Add bid</a>
         </div>
       </div>
     </div>

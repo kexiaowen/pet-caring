@@ -103,6 +103,7 @@ function createNewCard(data) {
   // Card content
   var cardStacked = createNewDivWithClass("card-stacked row");
   var cardContent = createNewDivWithClass("card-content");
+
   // Left column display of the card
   var cardLeftCol = createNewDivWithClass("col s6");
   var nameNode = createNewTextNode("Name: " + name);
@@ -113,14 +114,34 @@ function createNewCard(data) {
   cardLeftCol.appendChild(regionNode);
   cardLeftCol.appendChild(addressNode);
   cardLeftCol.appendChild(remarkNode);
+
   // Right column display of the card
   var cardRightCol = createNewDivWithClass("col s6");
   var bidNode = createNewTextNode("Minimum bid required: $" + minBid);
-  var yourBid = createNewTextNode("Your bid: $");
+  var yourBid = createNewDivWithClass("");
+  yourBid.id = "add-bid";
+  var yourBidStatement = createNewTextNode("Your bid: ");
+  yourBidStatement.className = "col s3";
+  var dollarSign = createNewIconWithClass("fa fa-dollar");
+  var bidInput = createNewInputWithClass("col s3 w3-border");
+  yourBidStatement.appendChild(dollarSign);
+  yourBid.appendChild(yourBidStatement);
+  yourBid.appendChild(bidInput);
   cardRightCol.appendChild(bidNode);
   cardRightCol.appendChild(yourBid);
+
+  // Creating the add bid button
+  var bidButton = document.createElement("button");
+  bidButton.id = "add-bid-btn";
+  var innerButton = document.createElement("a");
+  innerButton.className = "waves-effect waves-light btn";
+  innerButton.innerHTML = "Add bid";
+  bidButton.appendChild(innerButton);
+
+  // Creating whole card
   cardContent.appendChild(cardLeftCol);
   cardContent.appendChild(cardRightCol);
+  cardContent.appendChild(bidButton);
   cardStacked.appendChild(cardContent);
   horizontalCard.appendChild(cardStacked);
 
@@ -140,4 +161,20 @@ function createNewTextNode(content) {
   var textNode = document.createTextNode(content);
   node.appendChild(textNode);
   return node;
+}
+
+// Creates a new icon with the given class
+function createNewIconWithClass(className) {
+    var node = document.createElement("i");
+    node.className = className;
+    return node;
+}
+
+// Creates a new input field (text) with the given class
+function createNewInputWithClass(className) {
+    var node = document.createElement("input");
+    node.className = className;
+    node.setAttribute('type', 'text');
+    node.setAttribute('name', 'submitted_bid');
+    return node;
 }
