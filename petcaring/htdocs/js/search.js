@@ -100,8 +100,8 @@ function createNewCard(data) {
   horizontalCard.appendChild(cardImage);
 
   // Card content
-  var cardStacked = createNewDivWithClass("card-stacked");
-  var cardContent = createNewDivWithClass("card-content row");
+  var cardStacked = createNewDivWithClass("card-stacked row");
+  var cardContent = createNewDivWithClass("card-content");
   // Left column display of the card
   var cardLeftCol = createNewDivWithClass("col s6");
   var nameNode = createNewTextNode("Name: " + name);
