@@ -7,7 +7,7 @@
         $_POST['start_date'] !== "" && $_POST['end_date'] !== "" && $_POST[max_bid] !== "") {
     $formatted_start_date = date_format(date_create($_POST[start_date]), 'Y-m-d');
     $formatted_end_date = date_format(date_create($_POST[end_date]), 'Y-m-d');
-    $query = "SELECT acc.name, acc.region, acc.address, avail.min_bid
+    $query = "SELECT acc.name, acc.region, acc.address, avail.min_bid, avail.remark
                 FROM account AS acc, availability AS avail
                 WHERE acc.email = avail.caretaker
                 AND avail.start_date <= '$formatted_start_date'
@@ -28,8 +28,9 @@
       $region  = $row['region'];
       $address = $row['address'];
       $min_bid = $row['min_bid'];
+      $remark  = $row['remark'];
 
-      $arr = array($name, $region, $address, $min_bid);
+      $arr = array($name, $region, $address, $min_bid, $remark);
       $fullArr[$counter] = $arr;
       $counter++;
     }

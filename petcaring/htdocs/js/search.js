@@ -88,6 +88,7 @@ function createNewCard(data) {
   var region = data[1];
   var address = data[2];
   var minBid = data[3];
+  var remark = data[4];
 
   var horizontalCard = createNewDivWithClass("card horizontal hoverable");
 
@@ -107,7 +108,7 @@ function createNewCard(data) {
   var nameNode = createNewTextNode("Name: " + name);
   var regionNode = createNewTextNode("Region: " + region);
   var addressNode = createNewTextNode("Address: " + address);
-  var remarkNode = createNewTextNode("Remark: ");
+  var remarkNode = createNewTextNode("Remark: " + remark);
   cardLeftCol.appendChild(nameNode);
   cardLeftCol.appendChild(regionNode);
   cardLeftCol.appendChild(addressNode);
