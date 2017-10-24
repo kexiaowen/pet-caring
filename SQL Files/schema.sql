@@ -28,8 +28,8 @@ CREATE TABLE pet (
 );
 
 CREATE TABLE availability (
-	start_date DATE NOT NULL,
-	end_date DATE NOT NULL,
+	start_date DATE,
+	end_date DATE,
 	type_of_pet VARCHAR(32) NOT NULL,
 	CONSTRAINT validType CHECK (type_of_pet = 'dog' OR type_of_pet = 'cat' OR type_of_pet = 'hamster' OR type_of_pet = 'rabbit' OR type_of_pet = 'bird'),
 	caretaker VARCHAR(355) REFERENCES account(email) ON UPDATE CASCADE ON DELETE CASCADE,
