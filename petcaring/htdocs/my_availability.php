@@ -64,12 +64,17 @@
         $bid_row = pg_fetch_assoc($res);
         $bidder_num = $res['total'];*/
         $bidder_num = 20;
-
         echo "<div class=\"card hoverable\">
           <div class=\"card-content\">
-            <div class=\"row\">
-              <a href=\"delete_availability.php?start_date=$start_date & end_date=$end_date & caretaker=$caretaker\"><i class=\"material-icons right delete\">delete</i></a>
-              <a href=\"edit_availability.php?start_date=$start_date & end_date=$end_date & caretaker=$caretaker\"><i class=\"material-icons right edit\">mode_edit</i></a>
+            <div class=\"row\">";
+              if ($acceptedBid) {
+                echo "<span class=\"new badge green left\" data-badge-caption=\"Accepted\"></span>";
+              } else {
+                echo "<span class=\"new badge red left\" data-badge-caption=\"Pending\"></span>
+                <a href=\"delete_availability.php?start_date=$start_date & end_date=$end_date & caretaker=$caretaker\"><i class=\"material-icons right delete\">delete</i></a>
+                <a href=\"edit_availability.php?start_date=$start_date & end_date=$end_date & caretaker=$caretaker\"><i class=\"material-icons right edit\">mode_edit</i></a>";
+              }
+            echo "
             </div>
             <div class=\"row\">
               <div class=\"col s3 \">

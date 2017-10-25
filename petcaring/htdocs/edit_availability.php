@@ -16,15 +16,16 @@
   <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Import materialize.css-->
-  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-  <!--<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>-->
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+  <!--<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>-->
 
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <style>
     .bidder-num {font-size: 50px;}
     .text-size {font-size: 20px;}
+    .avail-header {font-weight: 200;}
     /* label color */
    /*.input-field label {
      color: #000;
@@ -65,7 +66,7 @@
     </div>
   </nav>
   <div class="container">
-    <h3 class="light-blue-text text-lighten-1 light center">Edit my availability</h3>
+    <h3 class="light-blue-text text-lighten-1 center avail-header">Edit my availability</h3>
     <?php
       /*echo $start_date;
       echo $end_date;
