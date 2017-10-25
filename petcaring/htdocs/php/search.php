@@ -3,11 +3,11 @@
   $db = pg_connect("host=localhost port=5432 dbname=petcaring user=postgres password=123beanbong")
           or die('Could not connect: ' . pg_last_error($db));
 
-  if (isset($_POST['start_date'], $_POST['end_date'], $_POST['type_of_pet'], $_POST[max_bid]) &&
-        $_POST['start_date'] !== "" && $_POST['end_date'] !== "" && $_POST[max_bid] !== "") {
-    $formatted_start_date = date_format(date_create($_POST[start_date]), 'Y-m-d');
-    $formatted_end_date = date_format(date_create($_POST[end_date]), 'Y-m-d');
-    $query = "SELECT acc.name, acc.region, acc.address, avail.min_bid, avail.remark
+  if (isset($_POST['start_date'], $_POST['end_date'], $_POST['type_of_pet'], $_POST['max_bid']) &&
+        $_POST['start_date'] !== "" && $_POST['end_date'] !== "" && is_numeric($_POST['max_bid'])) {
+    $formatted_start_date = date_format(date_create($_POST['start_date']), 'Y-m-d');
+    $formatted_end_date = date_format(date_create($_POST['end_date']), 'Y-m-d');
+    $query = "SELECT acc.name, acc.email, acc.region, acc.address, avail.min_bid, avail.remark
                 FROM account AS acc, availability AS avail
                 WHERE acc.email = avail.caretaker
                 AND avail.start_date <= '$formatted_start_date'
@@ -25,12 +25,13 @@
     // Create  while loop and loop through result set
     while($row = pg_fetch_assoc($result)) {
         $name  = $row['name'];
+        $email = $row['email'];
       $region  = $row['region'];
       $address = $row['address'];
       $min_bid = $row['min_bid'];
       $remark  = $row['remark'];
 
-      $arr = array($name, $region, $address, $min_bid, $remark);
+      $arr = array($name, $email, $region, $address, $min_bid, $remark);
       $fullArr[$counter] = $arr;
       $counter++;
     }
@@ -38,4 +39,6 @@
   } else {
     echo "ERROR!";
   }
+
+  pg_close($db);
 ?>

@@ -19,6 +19,7 @@ $(document).ready(function() {
 // Bind submit event of form -- this code snippet is inspired by
 // https://stackoverflow.com/questions/5004233/jquery-ajax-post-example-with-php
 var request;
+var serializedData;
 
 $("#search").submit(function(event) {
   // Prevent default posting of form
@@ -29,11 +30,11 @@ $("#search").submit(function(event) {
     request.abort();
   }
 
-  $form = $("this");
+  $form = $(this);
   $inputs = $form.find("input, select");
 
   // Serialize data in the form
-  var serializedData = $("form").serialize();
+  serializedData = $form.serialize();
 
   // Disable the inputs for the duration of the Ajax request.
   // Note: we disable elements AFTER the form data has been serialized.
@@ -55,9 +56,13 @@ $("#search").submit(function(event) {
   });
 });
 
+var result;
+
 // Creates a new list of person cards according to the search results
 function createNewCards(response) {
   document.getElementById("card-container").innerHTML = "";
+  $(".bid-button").removeClass("disabled");
+
   if (response === "ERROR!") {
       var errorNode = createNewTextNode(
         "ERROR! Please check your inputs. Did you leave a field blank?");
@@ -82,13 +87,17 @@ function createNewCards(response) {
   }
 }
 
+var cardCounter = 0;
+var caretaker;
+
 // Creates a single person card according to the given details
 function createNewCard(data) {
   var name = data[0];
-  var region = data[1];
-  var address = data[2];
-  var minBid = data[3];
-  var remark = data[4];
+  caretaker = data[1];
+  var region = data[2];
+  var address = data[3];
+  var minBid = data[4];
+  var remark = data[5];
 
   var horizontalCard = createNewDivWithClass("card horizontal hoverable");
 
@@ -118,8 +127,9 @@ function createNewCard(data) {
   // Right column display of the card
   var cardRightCol = createNewDivWithClass("col s6");
   var bidNode = createNewTextNode("Minimum bid required: $" + minBid);
-  var yourBid = createNewDivWithClass("");
-  yourBid.id = "add-bid";
+  var yourBid = document.createElement("form");
+  yourBid.className = "form";
+  yourBid.setAttribute("id", "card" + cardCounter);
   var yourBidStatement = createNewTextNode("Your bid: ");
   yourBidStatement.className = "col s3";
   var dollarSign = createNewIconWithClass("fa fa-dollar");
@@ -131,10 +141,12 @@ function createNewCard(data) {
   cardRightCol.appendChild(yourBid);
 
   // Creating the add bid button
-  var bidButton = document.createElement("button");
-  bidButton.id = "add-bid-btn";
-  var innerButton = document.createElement("a");
-  innerButton.className = "waves-effect waves-light btn";
+  var bidButton = createNewDivWithClass("add-bid-btn");
+  var innerButton = document.createElement("button");
+  innerButton.className = "btn waves-effect waves-light light-blue lighten-2 bid-button";
+  innerButton.setAttribute("type", "submit");
+  innerButton.setAttribute("name", "add-bid");
+  innerButton.setAttribute("form", "card" + cardCounter);
   innerButton.innerHTML = "Add bid";
   bidButton.appendChild(innerButton);
 
@@ -145,14 +157,16 @@ function createNewCard(data) {
   cardStacked.appendChild(cardContent);
   horizontalCard.appendChild(cardStacked);
 
+  cardCounter++;
+
   return horizontalCard;
 }
 
 // Creates a new div with the given class
 function createNewDivWithClass(className) {
-    var node = document.createElement("div");
-    node.className = className;
-    return node;
+  var node = document.createElement("div");
+  node.className = className;
+  return node;
 }
 
 // Creates a new text node with the given content
@@ -165,16 +179,70 @@ function createNewTextNode(content) {
 
 // Creates a new icon with the given class
 function createNewIconWithClass(className) {
-    var node = document.createElement("i");
-    node.className = className;
-    return node;
+  var node = document.createElement("i");
+  node.className = className;
+  return node;
 }
 
 // Creates a new input field (text) with the given class
 function createNewInputWithClass(className) {
-    var node = document.createElement("input");
-    node.className = className;
-    node.setAttribute('type', 'text');
-    node.setAttribute('name', 'submitted_bid');
-    return node;
+  var node = document.createElement("input");
+  node.className = className;
+  node.setAttribute("type", "text");
+  node.setAttribute("name", "submitted_bid");
+  return node;
+}
+
+var bidReq;
+
+// Submit bid
+$("#card-container").on('submit', function(event) {
+  // Prevent default posting of form
+  event.preventDefault();
+  event.stopPropagation();
+
+  // Abort any pending request
+  if (bidReq) {
+    bidReq.abort();
+  }
+
+  $form = $("#" + event.target.id);
+  $input = $form.children("input");
+
+  // Serialize data in the form and combine it with the search data
+  var serialized = serializedData + '&' + $form.serialize() + '&caretaker=' + caretaker;
+  console.log(serialized);
+
+  // Disable the inputs for the duration of the Ajax request.
+  // Note: we disable elements AFTER the form data has been serialized.
+  // Disabled form elements will not be serialized.
+  $input.prop("disabled", true);
+
+  // Fire off the request to php/search.php
+  bidReq = $.post (
+    "php/add_bid.php",
+    serialized,
+    disableAddBidButtons
+  );
+
+  // Callback handler that will be called regardless
+  // if the request failed or succeeded
+  bidReq.always(function () {
+    // Reenable the inputs
+    $input.prop("disabled", false);
+  });
+});
+
+// Disable the add bid buttons after a bid has been submitted successfully
+function disableAddBidButtons(response) {
+  console.log("response: " + response);
+
+  if (response === "ERROR!") {
+    var errorNode = createNewTextNode(
+        "ERROR! Please make sure you submitted a valid bid!");
+    document.getElementById("card-container").appendChild(errorNode);
+    return;
+  }
+
+  $(".bid-button").addClass("disabled");
 }

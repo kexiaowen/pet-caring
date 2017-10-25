@@ -54,11 +54,11 @@ textarea.materialize-textarea:focus:not([readonly]) {
 /*
 * Style changes for adding bid segment
 */
-#add-bid .col {
+.form .col {
     padding: 0 0;
 }
 
-#add-bid-btn {
+.add-bid-btn {
   display: flex;
   flex-direction: row-reverse;
   position: absolute;

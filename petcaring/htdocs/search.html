@@ -68,7 +68,8 @@
       <!-- Find caretaker button -->
       <div class="row">
         <div class="col s4 offset-s4 center">
-          <button class="btn waves-effect waves-light light-blue lighten-2 center-align search-avail" type="submit" name="submit">Search availability
+          <button class="btn waves-effect waves-light light-blue lighten-2 center-align" type="submit" name="submit" form="search">
+            Search availability
             <i class="material-icons right">search</i>
           </button>
         </div>
@@ -78,7 +79,7 @@
 
   <!-- Card display: cards are generated dynamically -->
   <div id="card-container">
-  <!-- Code for a sample card
+  <!-- Code for a sample card (slightly outdated)
   <div class="card horizontal hoverable">
     <div class="card-image">
       <img src="img/penguin.png" class="circle">
@@ -93,18 +94,19 @@
         </div>
         <div class="col s6">
           <p name="min_bid">Mininum bid required:</p>
-          <div id="add-bid">
+          <form id="add-bid">
             <p class="col s3">Your bid: <i class="fa fa-dollar"></i></p>
             <input class="col s3 w3-border" type="text" name="submitted_bid">
-          </div>
-        </div>
-        <div id="add-bid-btn">
-          <a class="waves-effect waves-light btn">Add bid</a>
+            <div id="add-bid-btn">
+              <button class="btn waves-effect waves-light light-blue lighten-2" type="submit" name="add-bid" form="add-bid">
+                Add bid
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
-  </div>
-  -->
+</div>-->
   </div>
 
   <!-- Import jQuery and other relevant JavaScript files -->
