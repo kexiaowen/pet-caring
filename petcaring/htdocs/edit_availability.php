@@ -31,24 +31,51 @@
      color: #000;
    }*/
    /* label focus color */
+    input:not([type]):focus:not([readonly]),
+    input[type=text]:not(.browser-default):focus:not([readonly]),
+    input[type=email]:not(.browser-default):focus:not([readonly]),
+    input[type=url]:not(.browser-default):focus:not([readonly]),
+    input[type=time]:not(.browser-default):focus:not([readonly]),
+    input[type=date]:not(.browser-default):focus:not([readonly]),
+    input[type=datetime]:not(.browser-default):focus:not([readonly]),
+    input[type=datetime-local]:not(.browser-default):focus:not([readonly]),
+    input[type=tel]:not(.browser-default):focus:not([readonly]),
+    input[type=number]:not(.browser-default):focus:not([readonly]),
+    input[type=search]:not(.browser-default):focus:not([readonly]),
+    textarea:focus:not([readonly]) {
+      border-bottom: none;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+    }
+    .input-field textarea[type=text]:focus + label{
+      color: #03a9f4;
+    }
+    .input-field textarea[type=text]:focus {
+      border-bottom: 1px solid #03a9f4;
+      box-shadow: 0 1px 0 0 #03a9f4;
+    }
+
+   /*
+   ,
+   textarea.materialize-textarea:focus:not([readonly])
    .input-field input[type=text]:focus + label {
      color: #03a9f4;
    }
-   /* label underline focus color */
+   // label underline focus color
    .input-field input[type=text]:focus {
      border-bottom: 1px solid #03a9f4;
      box-shadow: 0 1px 0 0 #03a9f4;
    }
-   /* valid color */
+   // valid color
    .input-field input[type=text].valid {
      border-bottom: 1px solid #03a9f4;
      box-shadow: 0 1px 0 0 #03a9f4;
    }
-   /* invalid color */
+   // invalid color
    .input-field input[type=text].invalid {
      border-bottom: 1px solid #000;
      box-shadow: 0 1px 0 0 #000;
-   }
+   }*/
    /* icon prefix focus color */
    /*.input-field .prefix.active {
      color: #03a9f4;
@@ -135,6 +162,7 @@
       $('#remark').val('remark');
       $('#remark').trigger('autoresize');
       $('select').material_select();
+      $('select').css('color', 'blue');
     });
   </script>
 </body>

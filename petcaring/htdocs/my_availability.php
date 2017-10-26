@@ -53,17 +53,17 @@
         $type_of_pet = $row['type_of_pet'];
         $caretaker = $row['caretaker'];
         $min_bid = $row['min_bid'];
-        $acceptedBid = $row['acceptedBid'];
+        $acceptedBid = $row['accepted_bid'];
         $remark = $row['remark'];
 
 
-        /*$query = "SELECT count(*) as total
+        $query = "SELECT count(*) as total
                   FROM bid
-                  WHERE caretaker = 'jeffereyW@gmail.com' AND start_date = $start_date AND end_date = $end_date";
-        $res = pg_query($db, query);
+                  WHERE caretaker = 'jeffereyW@gmail.com' AND start_date = '2015-11-16' AND end_date = '2015-11-22'";
+        $res = pg_query($db, $query);
         $bid_row = pg_fetch_assoc($res);
-        $bidder_num = $res['total'];*/
-        $bidder_num = 20;
+        $bidder_num = $bid_row['total'];
+        // $bidder_num = 20;
         echo "<div class=\"card hoverable\">
           <div class=\"card-content\">
             <div class=\"row\">";
@@ -109,7 +109,7 @@
                   <span class=\"grey-text text-darken-2\">bidders</span>
                 </div>
                 <div class=\"row\">
-                  <a class=\"waves-effect waves-light light-blue btn\" href=\"#\">View all bids</a>
+                  <a class=\"waves-effect waves-light light-blue btn\" href=\"view_bids.php?start_date=$start_date & end_date=$end_date & type_of_pet=$type_of_pet\">View all bids</a>
                 </div>
               </div>
             </div>
