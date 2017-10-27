@@ -1,5 +1,4 @@
 <?php
-  echo "HI";
   // Connect to the database
   $db = pg_connect("host=localhost port=5432 dbname=petcaring user=postgres password=123beanbong")
           or die('Could not connect: ' . pg_last_error($db));
