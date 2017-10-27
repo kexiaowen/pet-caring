@@ -1,6 +1,10 @@
 <!DOCTYPE html>  
 <head>
+<<<<<<< HEAD
   <title>login</title>
+=======
+  <title>Pet Caring</title>
+>>>>>>> master
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <style>
     body{
