@@ -1,3 +1,9 @@
+<?php 
+  session_start(); 
+  if(!isset($_SESSION[email]) || empty($_SESSION[email]))
+    include('headerN.php');
+  else include ('headerHi.php'); 
+ ?>
 <!DOCTYPE html>
 <head>
   <title>Pet Caring</title>
@@ -13,16 +19,6 @@
   <style>li {list-style: none;}</style>
 </head>
 <body>
-  <nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Pet Caring</a>
-      <ul class="right">
-        <li><a href="/petcaring/index.php">Home</a></li>
-        <li><a href="/petcaring/login.php">Log in</a></li>
-        <li><a href="/petcaring/signup.php">Sign up</a></li>
-      </ul>
-    </div>
-  </nav>
-
   <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
       <div class="container">
