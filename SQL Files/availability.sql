@@ -2,7 +2,7 @@
 * Inserts availability data
 */
 
-INSERT INTO availability (start_date, end_date, type_of_pet, caretaker, min_bid, acceptedBid)  VALUES ('2017-03-10', '2017-04-10', 'cat', 'xujun@gmail.com', 10, FALSE);
+INSERT INTO availability (start_date, end_date, type_of_pet, caretaker, min_bid, accepted_bid)  VALUES ('2017-03-10', '2017-04-10', 'cat', 'xujun@gmail.com', 10, FALSE);
 INSERT INTO availability VALUES ('2016-01-12', '2016-01-29', 'cat', 'xujun@gmail.com', 10, FALSE);
 INSERT INTO availability VALUES ('2016-01-31', '2016-02-18', 'cat', 'xujun@gmail.com', 10, FALSE, 'only nimble cats');
 INSERT INTO availability VALUES ('2016-03-29', '2016-04-03', 'cat', 'xujun@gmail.com', 10, TRUE);
