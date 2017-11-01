@@ -1,5 +1,10 @@
 <?php
   session_start();
+  if(!isset($_SESSION[email]) || empty($_SESSION[email]))
+    include('headerN.php');
+  else include ('headerHi.php');
+ ?>
+<?php
   include("config.php");
   $start_date = $_GET['start_date'];
   $end_date = $_GET['end_date'];
@@ -83,15 +88,6 @@
   </style>
 </head>
 <body>
-  <nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Pet Caring</a>
-      <ul class="right">
-        <li><a href="index.php">Home</a></li>
-        <li><a href="login.php">Log in</a></li>
-        <li><a href="signup.php">Sign up</a></li>
-      </ul>
-    </div>
-  </nav>
   <div class="container">
     <h3 class="light-blue-text text-lighten-1 center avail-header">Edit my availability</h3>
     <?php
@@ -126,7 +122,7 @@
                   <input class="w3-input w3-border" type="text" name="remark" value="<?php //echo $row['remark'];?>">
                 </div>-->
                 <div class="input-field col s12">
-                  <textarea id="remark" type="text" class="materialize-textarea" name="remark" rows="3"></textarea>
+                  <textarea id="remark" type="text" class="materialize-textarea" name="remark" rows="1"></textarea>
                   <label for="remark" class="active">Remark</label>
                 </div>
               </div>

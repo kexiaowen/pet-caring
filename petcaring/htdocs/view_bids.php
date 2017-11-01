@@ -1,3 +1,9 @@
+<?php
+  session_start();
+  if(!isset($_SESSION[email]) || empty($_SESSION[email]))
+    include('headerN.php');
+  else include ('headerHi.php');
+ ?>
 <!DOCTYPE html>
  <head>
    <title>Pet Caring</title>
@@ -13,15 +19,6 @@
    </style>
  </head>
  <body>
-   <nav class="light-blue lighten-1" role="navigation">
-     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Pet Caring</a>
-       <ul class="right">
-         <li><a href="index.php">Home</a></li>
-         <li><a href="login.php">Log in</a></li>
-         <li><a href="signup.php">Sign up</a></li>
-       </ul>
-     </div>
-   </nav>
 
    <div class="container" id="bid-container">
      <h3 class="light-blue-text text-lighten-1 light center">View bids</h3>
@@ -41,7 +38,7 @@
        require_once 'config.php';
        $sql = "SELECT *
                FROM bid
-               WHERE start_date = '$_GET[start_date]' AND end_date = '$_GET[end_date]' AND caretaker = 'jeffereyW@gmail.com'
+               WHERE start_date = '$_GET[start_date]' AND end_date = '$_GET[end_date]' AND caretaker = '$_SESSION[email]'
                ORDER BY price DESC";
        $result = pg_query($db, $sql);
        $counter = 0;
@@ -52,10 +49,17 @@
          $accepted_bid = $row['accepted_bid'];
          // echo "$accepted_bid";
 
-         $query = "SELECT *
+         $query = "SELECT accepted_bid
+                   FROM availability
+                   WHERE start_date = '$_GET[start_date]' AND end_date = '$_GET[end_date]' AND caretaker = '$_SESSION[email]' ";
+         $res = pg_query($db, $query);
+         $avail_row = pg_fetch_assoc($res);
+         $accepted_avail = $avail_row['accepted_bid'];
+
+         $query1 = "SELECT *
                    FROM account
                    WHERE email = '$bidder' ";
-         $res = pg_query($db, $query);
+         $res = pg_query($db, $query1);
          $account_row = pg_fetch_assoc($res);
          $bidder_name = $account_row['name'];
 
@@ -73,7 +77,7 @@
          echo "<div class=\"card hoverable\">
            <div class=\"card-content\">
              <div class=\"row\">";
-               if ($accepted_bid) {
+               if ($accepted_bid == 't') {
                  echo "<span class=\"new badge green left\" data-badge-caption=\"Accepted\"></span>";
                }
              echo "</div>
@@ -84,8 +88,8 @@
                      $bidder_name
                   </div>
                   <p>
-                    <span class=\"light-blue-text text-darken-2 text-size light\">About
                     <span class=\"light-blue-text text-darken-2 text-size light\">$pet_name
+                    <span class=\"light-blue-text text-darken-2 text-size light\">'s profile
                   </p>
                   <blockquote>
                     <p>
@@ -107,15 +111,20 @@
                     <span class=\"grey-text text-darken-2\">$</span>
                     <span class=\"light-blue-text bid-price\">$price</span>
                     <span class=\"grey-text text-darken-2\">/hr</span>
-                  </div>
+                  </div>";
 
-                  <form id=\"$counter\">
-                    <input id=\"bidder\" type=\"hidden\" value=\"$bidder\" name=\"bidder\" />
-                    <input id=\"caretaker\" type=\"hidden\" value=\"jeffereyW@gmail.com\" name=\"caretaker\" />
-                    <input id=\"start_date\" type=\"hidden\" value=\"$_GET[start_date]\" name=\"start_date\" />
-                    <input id=\"end_date\" type=\"hidden\" value=\"$_GET[end_date]\" name=\"end_date\"/>
-                    <button class=\"btn waves-effect waves-light light-blue\" type=\"submit\" name=\"submit\">Accept bid</button>
-                  </form>
+                  if ($accepted_avail == 'f') {
+                    echo "
+                      <form id=\"$counter\">
+                        <input id=\"bidder\" type=\"hidden\" value=\"$bidder\" name=\"bidder\" />
+                        <input id=\"pet_name\" type=\"hidden\" value=\"$pet_name\" name=\"pet_name\" />
+                        <input id=\"caretaker\" type=\"hidden\" value=\"$_SESSION[email]\" name=\"caretaker\" />
+                        <input id=\"start_date\" type=\"hidden\" value=\"$_GET[start_date]\" name=\"start_date\" />
+                        <input id=\"end_date\" type=\"hidden\" value=\"$_GET[end_date]\" name=\"end_date\"/>
+                        <button class=\"btn waves-effect waves-light light-blue\" type=\"submit\" name=\"submit\">Accept bid</button>
+                      </form>";
+                  }
+                  echo "
                 </div>
               </div>
              </div>

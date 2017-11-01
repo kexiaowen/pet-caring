@@ -1,3 +1,9 @@
+<?php
+  session_start();
+  if(!isset($_SESSION[email]) || empty($_SESSION[email]))
+    include('headerN.php');
+  else include ('headerHi.php');
+ ?>
 <!DOCTYPE html>
 <head>
   <title>Pet Caring</title>
@@ -10,17 +16,8 @@
   <style></style>
 </head>
 <body>
-  <nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Pet Caring</a>
-      <ul class="right">
-        <li><a href="index.php">Home</a></li>
-        <li><a href="login.php">Log in</a></li>
-        <li><a href="signup.php">Sign up</a></li>
-      </ul>
-    </div>
-  </nav>
+  
   <?php
-  	session_start();
   	include_once("config.php");
   	$query = "UPDATE availability
             SET type_of_pet= '$_POST[type_of_pet]', min_bid= '$_POST[min_bid]', remark='$_POST[remark]'

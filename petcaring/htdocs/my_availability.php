@@ -1,3 +1,9 @@
+<?php
+  session_start();
+  if(!isset($_SESSION[email]) || empty($_SESSION[email]))
+    include('headerN.php');
+  else include ('headerHi.php');
+ ?>
 <!DOCTYPE html>
 <head>
   <title>Pet Caring</title>
@@ -24,27 +30,18 @@
   </style>
 </head>
 <body>
-  <nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Pet Caring</a>
-      <ul class="right">
-        <li><a href="index.php">Home</a></li>
-        <li><a href="login.php">Log in</a></li>
-        <li><a href="signup.php">Sign up</a></li>
-      </ul>
-    </div>
-  </nav>
   <div class="container">
     <h3 class="light-blue-text text-lighten-1 light center">Manage my availabilities</h3>
     <?php
       require_once 'config.php';
-      /*$sql = "SELECT *
-              FROM availability
-              WHERE caretaker = $_SESSION[email]
-              ORDER BY start_date DESC";*/
       $sql = "SELECT *
               FROM availability
-              WHERE caretaker = 'jeffereyW@gmail.com'
+              WHERE caretaker = '$_SESSION[email]'
               ORDER BY start_date DESC";
+      /*$sql = "SELECT *
+              FROM availability
+              WHERE caretaker = 'jeffereyW@gmail.com'
+              ORDER BY start_date DESC";*/
       $result = pg_query($db, $sql);
       // Create  while loop and loop through result set
       while($row = pg_fetch_assoc($result)){
@@ -56,23 +53,38 @@
         $acceptedBid = $row['accepted_bid'];
         $remark = $row['remark'];
 
-
         $query = "SELECT count(*) as total
                   FROM bid
-                  WHERE caretaker = 'jeffereyW@gmail.com' AND start_date = '2015-11-16' AND end_date = '2015-11-22'";
+                  WHERE caretaker = '$_SESSION[email]' AND start_date = '$start_date' AND end_date = '$end_date'";
         $res = pg_query($db, $query);
         $bid_row = pg_fetch_assoc($res);
         $bidder_num = $bid_row['total'];
-        // $bidder_num = 20;
+        $max_bid = 0;
+        if ($bidder_num != 0) {
+          $max_bid_query = "SELECT price
+                            FROM bid as b1
+                            WHERE NOT EXISTS (
+                              SELECT *
+                              FROM bid as b2
+                              WHERE b1.price < b2.price
+                            )";
+          $max_bid_res = pg_query($db, $max_bid_query);
+          $max_bid_row = pg_fetch_assoc($max_bid_res);
+          $max_bid = $max_bid_row['price'];
+        }
+
         echo "<div class=\"card hoverable\">
           <div class=\"card-content\">
             <div class=\"row\">";
-              if ($acceptedBid) {
+              if ($acceptedBid == 't') {
                 echo "<span class=\"new badge green left\" data-badge-caption=\"Accepted\"></span>";
               } else {
-                echo "<span class=\"new badge red left\" data-badge-caption=\"Pending\"></span>
-                <a href=\"delete_availability.php?start_date=$start_date & end_date=$end_date & caretaker=$caretaker\"><i class=\"material-icons right delete\">delete</i></a>
-                <a href=\"edit_availability.php?start_date=$start_date & end_date=$end_date & caretaker=$caretaker\"><i class=\"material-icons right edit\">mode_edit</i></a>";
+                echo "<span class=\"new badge red left\" data-badge-caption=\"Pending\"></span>";
+              }
+              if ($bidder_num == 0 && $acceptedBid == 'f') {
+                echo "
+                  <a href=\"delete_availability.php?start_date=$start_date & end_date=$end_date & caretaker=$caretaker\"><i class=\"material-icons right delete\">delete</i></a>
+                  <a href=\"edit_availability.php?start_date=$start_date & end_date=$end_date & caretaker=$caretaker\"><i class=\"material-icons right edit\">mode_edit</i></a>";
               }
             echo "
             </div>
@@ -107,6 +119,10 @@
                 <div class=\"row\">
                   <span class=\"light-blue-text bidder-num\">$bidder_num</span>
                   <span class=\"grey-text text-darken-2\">bidders</span>
+                </div>
+                <div class=\"row\">
+                  <span class=\"grey-text text-darken-2\">Current maximum bid is</span>
+                  <span class=\"light-blue-text text-darken-2\">$$max_bid/hr</span>
                 </div>
                 <div class=\"row\">
                   <a class=\"waves-effect waves-light light-blue btn\" href=\"view_bids.php?start_date=$start_date & end_date=$end_date & type_of_pet=$type_of_pet\">View all bids</a>
