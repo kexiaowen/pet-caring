@@ -34,7 +34,7 @@ $("#search").submit(function(event) {
   $inputs = $form.find("input, select");
 
   // Serialize data in the form
-  serializedData = $form.serialize();
+  serializedData = $form.serialize() + '&bidder=' + bidder;
 
   // Disable the inputs for the duration of the Ajax request.
   // Note: we disable elements AFTER the form data has been serialized.

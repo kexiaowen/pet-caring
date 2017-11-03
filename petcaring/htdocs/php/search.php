@@ -9,6 +9,7 @@
     $query = "SELECT acc.name, acc.email, acc.region, acc.address, avail.start_date, avail.end_date, avail.min_bid, avail.remark
                 FROM account AS acc, availability AS avail
                 WHERE acc.email = avail.caretaker
+                AND acc.email <> '$_POST[bidder]'
                 AND avail.start_date <= '$formatted_start_date'
                 AND avail.end_date >= '$formatted_end_date'
                 AND avail.type_of_pet = '$_POST[type_of_pet]'
