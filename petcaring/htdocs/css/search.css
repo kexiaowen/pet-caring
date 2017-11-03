@@ -1,0 +1,77 @@
+/*
+* Style sheet for search page
+*/
+body {
+    text-align: left;
+}
+
+/*
+* General style changes for the whole page
+*/
+input:not([type]):focus:not([readonly]),
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]),
+input[type=email]:not(.browser-default):focus:not([readonly]),
+input[type=url]:not(.browser-default):focus:not([readonly]),
+input[type=time]:not(.browser-default):focus:not([readonly]),
+input[type=date]:not(.browser-default):focus:not([readonly]),
+input[type=datetime]:not(.browser-default):focus:not([readonly]),
+input[type=datetime-local]:not(.browser-default):focus:not([readonly]),
+input[type=tel]:not(.browser-default):focus:not([readonly]),
+input[type=number]:not(.browser-default):focus:not([readonly]),
+input[type=search]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+/*
+* Style changes for the card container and individual cards
+*/
+#card-container {
+  overflow-y: scroll;
+  height: 350px;
+  padding: 30px;
+}
+
+.card.horizontal {
+  font-family: "Futura Medium", "Trebuchet MS", Arial, sans-serif;
+  font-size: 18px;
+  height: 200px;
+}
+
+.card.horizontal .card-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 30%;
+}
+
+.card.horizontal .card-image img {
+  border-radius: 50%;
+  padding: 5px;
+  max-width: 50%;
+}
+
+/*
+* Style changes for the form segment (i.e. your pet and your bid)
+*/
+.card-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-form .col {
+    padding: 0 0;
+}
+
+.add-bid-btn {
+  display: flex;
+  flex-direction: row-reverse;
+  position: absolute;
+  bottom: 0;
+  right: 20px;
+  border: none;
+  padding: 0;
+}

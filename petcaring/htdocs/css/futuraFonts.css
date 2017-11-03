@@ -1,0 +1,18 @@
+/* -- Futura fonts -- */
+@font-face {
+    font-family: "Futura Medium";
+    src: url('fonts/futura/Futura-Medium.eot');
+    src: url('fonts/futura/Futura-Medium.eot?iefix') format('eot'),
+        url('fonts/futura/Futura-Medium.woff') format('woff'),
+        url('fonts/futura/Futura-Medium.ttf') format('truetype'),
+        url('fonts/futura/Futura-Medium.svg#webfont') format('svg');
+}
+
+@font-face {
+    font-family: "Futura Bold";
+    src: url('fonts/futura/Futura-Bold.eot');
+    src: url('fonts/futura/Futura-Bold.eot?iefix') format('eot'),
+        url('fonts/futura/Futura-Bold.woff') format('woff'),
+        url('fonts/futura/Futura-Bold.ttf') format('truetype'),
+        url('fonts/futura/Futura-Bold.svg#webfont') format('svg');
+}
