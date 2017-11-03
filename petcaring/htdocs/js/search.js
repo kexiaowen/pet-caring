@@ -88,7 +88,7 @@ function createNewCards(response) {
 }
 
 var cardCounter = 0;
-var caretaker;
+var caretaker, startDate, endDate;
 
 // Creates a single person card according to the given details
 function createNewCard(data) {
@@ -96,8 +96,10 @@ function createNewCard(data) {
   caretaker = data[1];
   var region = data[2];
   var address = data[3];
-  var minBid = data[4];
-  var remark = data[5];
+  startDate = data[4];
+  endDate = data[5];
+  var minBid = data[6];
+  var remark = data[7];
 
   var horizontalCard = createNewDivWithClass("card horizontal hoverable");
 
@@ -127,18 +129,27 @@ function createNewCard(data) {
   // Right column display of the card
   var cardRightCol = createNewDivWithClass("col s6");
   var bidNode = createNewTextNode("Minimum bid required: $" + minBid);
-  var yourBid = document.createElement("form");
-  yourBid.className = "form";
-  yourBid.setAttribute("id", "card" + cardCounter);
+  var petNameAndBid = document.createElement("form");
+  petNameAndBid.className = "card-form";
+  petNameAndBid.setAttribute("id", "card" + cardCounter);
+  var yourPetSection = createNewDivWithClass("col");
+  var yourPet = createNewTextNode("Your pet: ");
+  yourPet.className = "col s3";
+  var petInput = createNewInputWithClass("col s3 w3-border", "pet_name");
+  yourPetSection.appendChild(yourPet);
+  yourPetSection.appendChild(petInput);
+  var yourBidSection = createNewDivWithClass("col");
   var yourBidStatement = createNewTextNode("Your bid: ");
   yourBidStatement.className = "col s3";
   var dollarSign = createNewIconWithClass("fa fa-dollar");
-  var bidInput = createNewInputWithClass("col s3 w3-border");
+  var bidInput = createNewInputWithClass("col s3 w3-border", "submitted_bid");
   yourBidStatement.appendChild(dollarSign);
-  yourBid.appendChild(yourBidStatement);
-  yourBid.appendChild(bidInput);
+  yourBidSection.appendChild(yourBidStatement);
+  yourBidSection.appendChild(bidInput);
+  petNameAndBid.appendChild(yourPetSection);
+  petNameAndBid.appendChild(yourBidSection);
   cardRightCol.appendChild(bidNode);
-  cardRightCol.appendChild(yourBid);
+  cardRightCol.appendChild(petNameAndBid);
 
   // Creating the add bid button
   var bidButton = createNewDivWithClass("add-bid-btn");
@@ -185,11 +196,11 @@ function createNewIconWithClass(className) {
 }
 
 // Creates a new input field (text) with the given class
-function createNewInputWithClass(className) {
+function createNewInputWithClass(className, name) {
   var node = document.createElement("input");
   node.className = className;
   node.setAttribute("type", "text");
-  node.setAttribute("name", "submitted_bid");
+  node.setAttribute("name", name);
   return node;
 }
 
@@ -206,11 +217,17 @@ $("#card-container").on('submit', function(event) {
     bidReq.abort();
   }
 
+  if (bidder == "") {
+    Materialize.toast('Please log in or sign up before bidding!', 2500, 'red darken-1 rounded');
+    return ;
+  }
+
   $form = $("#" + event.target.id);
   $input = $form.children("input");
 
   // Serialize data in the form and combine it with the search data
-  var serialized = serializedData + '&' + $form.serialize() + '&caretaker=' + caretaker;
+  var serialized = $form.serialize() + '&caretaker=' + caretaker
+    + '&start_date=' + startDate + '&end_date=' + endDate + '&bidder=' + bidder;
   console.log(serialized);
 
   // Disable the inputs for the duration of the Ajax request.
@@ -238,10 +255,13 @@ function disableAddBidButtons(response) {
   console.log("response: " + response);
 
   if (response === "ERROR!") {
-    var errorNode = createNewTextNode(
-        "ERROR! Please make sure you submitted a valid bid!");
-    document.getElementById("card-container").appendChild(errorNode);
-    return;
+    Materialize.toast('Please submit a valid bid!', 2500, 'red darken-1 rounded');
+    return ;
+  }
+
+  if (response == "Invalid pet name.") {
+    Materialize.toast('Please submit a valid pet name!', 2500, 'red darken-1 rounded');
+    return ;
   }
 
   $(".bid-button").addClass("disabled");

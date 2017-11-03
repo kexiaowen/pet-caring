@@ -1,3 +1,9 @@
+<?php
+  session_start();
+  if(!isset($_SESSION[email]) || empty($_SESSION[email]))
+    include('headerN.php');
+  else include ('headerHi.php');
+ ?>
 <!DOCTYPE html>
 <head>
   <title>Pet Caring</title>
@@ -19,19 +25,6 @@
   <style>li {list-style: none;}</style>
 </head>
 <body>
-  <!-- Navigation bar -->
-  <nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper container">
-        <i class="fa fa-paw fa-2x"></i>
-        <a id="logo-container" href="#" class="brand-logo"> Pet Caring</a>
-      <ul class="right">
-        <li><a href="/petcaring/index.php">Home</a></li>
-        <li><a href="/petcaring/login.php">Log in</a></li>
-        <li><a href="/petcaring/signup.php">Sign up</a></li>
-      </ul>
-    </div>
-  </nav>
-
   <h3 class="light-blue-text text-lighten-1 center header-padding">Find a caretaker</h3>
 
   <div class="w3-container w3-display-container">
@@ -49,7 +42,7 @@
         <div class="col s3">
           <p><label><i class="fa fa-paw"></i> Type of Pet:</label></p>
           <div class="w3-input-field w3-border-top w3-border-left w3-border-right">
-            <select name="type_of_pet">
+            <select name="type_of_pet" id="type_of_pet">
               <option value="" disabled selected>Choose your pet type</option>
               <option value="bird">Bird</option>
               <option value="cat">Cat</option>
@@ -112,6 +105,9 @@
   <!-- Import jQuery and other relevant JavaScript files -->
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script type="text/javascript">
+    var bidder ='<?php echo $_SESSION[email];?>';
+  </script>
   <script type="text/javascript" src="js/search.js"></script>
 </body>
 </html>

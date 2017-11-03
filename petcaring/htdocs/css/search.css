@@ -1,6 +1,9 @@
 /*
 * Style sheet for search page
 */
+body {
+    text-align: left;
+}
 
 /*
 * General style changes for the whole page
@@ -52,9 +55,14 @@ textarea.materialize-textarea:focus:not([readonly]) {
 }
 
 /*
-* Style changes for adding bid segment
+* Style changes for the form segment (i.e. your pet and your bid)
 */
-.form .col {
+.card-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-form .col {
     padding: 0 0;
 }
 
