@@ -30,12 +30,12 @@ $_SESSION[name] = $row[name];
     <nav class="light-blue lighten-1" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo" style="left:0%">Pet Caring</a>
       <ul class="right">
+        <li>Hi, <?php echo $_SESSION[name]; ?></li>
         <li><a href="index.php">Home</a></li>
-        <li><a>Hi,<?php echo $_SESSION[name]; ?></a></li>
         <li><a href="profile.php">My Profile</a></li>
-        <li><a href="myPet.php">My Pet</a></li>
+        <li><a href="my_pets.php">My Pets</a></li>
         <li><a href="myAvailability.php">My Availability</a></li>
-        <li><a href="myBid.php">My bid</a></li>
+        <li><a href="view_bids.php">My Bids</a></li>
         <li><a href="logout.php">Sign out</a></li>
       </ul>
     </div>
