@@ -30,7 +30,7 @@
       if ($result) {
         echo "<div class=\"container\">
           <div class=\"center\">
-            <h3 class=\"light-blue-text light\">You have successfully deleted this pet!</h3>
+            <h3 class=\"light-blue-text light\">Pet details deleted!</h3>
           </div>
           <div class=\"right\">
             <h6 class=\"light\"><a href=\"my_pets.php\" class=\"light-blue-text light\">Back to my pets</a></h6>
