@@ -34,7 +34,7 @@ $_SESSION[name] = $row[name];
         <li><a href="index.php">Home</a></li>
         <li><a href="profile.php">My Profile</a></li>
         <li><a href="my_pets.php">My Pets</a></li>
-        <li><a href="myAvailability.php">My Availability</a></li>
+        <li><a href="my_availability.php">My Availability</a></li>
         <li><a href="view_bids.php">My Bids</a></li>
         <li><a href="logout.php">Sign out</a></li>
       </ul>
