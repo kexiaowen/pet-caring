@@ -54,16 +54,16 @@
           <div class="w3-input-field w3-border-top w3-border-left w3-border-right">
             <select name="size" id="size">
               <option value="" disabled selected>Choose your pet size</option>
-              <option value="bird">Small</option>
-              <option value="cat">Medium</option>
-              <option value="dog">Large</option>
-              <option value="hamster">Giant</option>
+              <option value="small">Small</option>
+              <option value="medium">Medium</option>
+              <option value="large">Large</option>
+              <option value="giant">Giant</option>
             </select>
           </div>
         </div>
         <div class="col s2">
           <p><label><i class="fa fa-calendar-check-o"></i> Your pet's D.O.B.:</label></p>
-          <input type="text" class="w3-border datepicker" placeholder="D.O.B." name="start_date">
+          <input type="text" class="w3-border datepicker" placeholder="D.O.B." name="dob">
         </div>
       </div>
 
@@ -78,30 +78,12 @@
     </form>
   </div>
 
-  <?php
-      // Connect to the database -- remember to change the db name and password accordingly!!
-      $db     = pg_connect("host=localhost port=5432 dbname=petcaring user=postgres password=123beanbong")
-                  or die('Could not connect: ' . pg_last_error($db));
-
-      // Add account function
-      if (isset($_POST['submitadd'])) {
-      $query = "INSERT INTO pet VALUES(
-                  '$_POST[name]',
-                  '$_POST[type_of_pet]',
-                  '$_POST[species]',
-                  '$_POST[dob]',
-                  '$_POST[size]',
-                  '$_POST[owner]')";
-      $result = pg_query($db, $query)
-                  or die('Add query failed: ' . pg_last_error($db));
-
-      echo "Add succeeded!";
-    }
-  ?>
-
   <!-- Import jQuery and other relevant JavaScript files -->
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script type="text/javascript">
+    var owner ='<?php echo $_SESSION[email];?>';
+  </script>
   <script type="text/javascript" src="js/add_pet.js"></script>
 </body>
 </html>
