@@ -1,0 +1,34 @@
+/*
+* Style sheet for my pets page
+*/
+body {
+  text-align: left;
+}
+
+.text-size {
+  font-size: 20px;
+}
+
+/* Styling for add pet button */
+#add-pet {
+  position: fixed;
+  bottom: 8px;
+  right: 8px;
+}
+
+.delete {
+  font-size: 30px;
+}
+
+.edit {
+  font-size: 30px;
+}
+
+.delete:hover {
+  color: #f44336;
+  opacity: 0.6;
+}
+.edit:hover {
+  color: #4caf50;
+  opacity: 0.6;
+}
