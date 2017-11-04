@@ -9,6 +9,13 @@ body {
   font-size: 20px;
 }
 
+/* Styling for add pet button */
+#add-pet {
+  position: fixed;
+  bottom: 8px;
+  right: 8px;
+}
+
 .delete {
   font-size: 30px;
 }

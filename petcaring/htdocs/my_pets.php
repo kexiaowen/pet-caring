@@ -21,6 +21,7 @@
   </style>
 </head>
 <body>
+  <a class="waves-effect waves-light btn light-blue" href="add_pet.php" id="add-pet">Add new pet</a>
   <div class="container">
       <h3 class="light-blue-text text-lighten-1 light center">Manage my pets</h3>
     <?php
