@@ -1,10 +1,10 @@
 <?php
 // Initialize the session
 session_start();
- 
+
 // If session variable is not set it will redirect to login page
 ?>
- 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +21,7 @@ session_start();
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <style>li {list-style: none;}</style>
   <style type="text/css">
-    body{ font: 14px sans-serif; text-align: center; }
+    body{ font: 14px sans-serif; }
   </style>
 </head>
 <body>
