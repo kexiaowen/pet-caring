@@ -39,9 +39,9 @@
       } else {
         echo "<div class=\"container\">
           <div class=\"center\">
-            <h3 class=\"light-blue-text light\">";
-              echo "pg_last_error($db)";
-            echo "</h3>
+            <h2 class=\"light-blue-text light\">";
+              echo "Someone has already submitted a bid for this pet. Please contact the team for help!";
+            echo "</h2>
           </div>
           <div class=\"right\">
             <h6 class=\"light\"><a href=\"my_pets.php\" class=\"light-blue-text light\">Back to my pets</a></h6>

@@ -40,12 +40,24 @@
         $dob = $row['dob'];
         $size = $row['size'];
 
+        $query = "SELECT count(*) as total
+                  FROM bid
+                  WHERE bidder = '$owner' AND pet_name = '$pet_name'";
+        $res = pg_query($db, $query);
+        $bid_row = pg_fetch_assoc($res);
+        $bidder_num = $bid_row['total'];
+
         echo "<div class=\"card hoverable small\">
           <div class=\"card-content\">
             <div class=\"row\">";
+            if ($bidder_num > 0) {
+              echo "
+                <a href=\"my_bids.php\"><span class=\"new badge rounded red darken-2\" data-badge-caption=\"Can no longer be edited/deleted\"></span></a>";
+            } else {
               echo "
                 <a href=\"delete_pet.php?owner=$owner&pet_name=$pet_name\"><i class=\"material-icons right delete\">delete</i></a>
                 <a href=\"edit_pet.php?owner=$owner&pet_name=$pet_name&type_of_pet=$type_of_pet&species=$species&dob=$dob&size=$size\"><i class=\"material-icons right edit\">mode_edit</i></a>";
+            }
             echo "
             </div>
             <div class=\"row\">
