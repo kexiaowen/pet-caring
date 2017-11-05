@@ -83,7 +83,10 @@
   </form>
   <?php
     require_once 'config.php';
-    if (isset($_POST['submit'])) { 
+    if (isset($_POST['submit'])) {
+      if ($_POST[postal_code]==''|| $_POST[name]=='' || $_POST[address]=='') echo "empty area founded";
+      else if (!is_numeric($_POST[postal_code])) echo "Invalid postal code";
+      else {
         $result = pg_query($db, "UPDATE account SET name = '$_POST[name]',  
    region = '$_POST[region]',address = '$_POST[address]',  
     postal_code = '$_POST[postal_code]' where email = '$_SESSION[email]'");
@@ -95,10 +98,10 @@
               $_SESSION[address] = $_POST[address];
               $_SESSION[postal_code] = $_POST[postal_code];
               echo "Update successful!";
-              header("location:profile.php");
-              
+              header("location:profile.php");   
         }
     }
+  }
     ?>
       <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
