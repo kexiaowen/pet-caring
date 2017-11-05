@@ -10,7 +10,7 @@
   <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Import materialize.css-->
- 
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -30,26 +30,26 @@
               FROM account
               WHERE email = '$_SESSION[email]' ";
       $result = pg_query($db, $sql);
-      $row    = pg_fetch_assoc($result);   
+      $row    = pg_fetch_assoc($result);
 
       $_SESSION[name]  = $row[name];
       $_SESSION[region] = $row[region];
       $_SESSION[address] = $row[address];
       $_SESSION[postal_code] = $row[postal_code];
   ?>
-  <h3 class="light-blue-text text-lighten-1 center avail-header">My profile</h3>
+  <h3 class="light-blue-text text-lighten-1 center avail-header light">My profile</h3>
   <form class="col s12" method="POST">
     <div class="row">
              <div class="col s4">
               <p><label><i class=""></i> Email:</label></p>
               <input class="w3-input w3-border active" type="text" name="email" disabled value="<?php echo $_SESSION[email]?>"/>
              </div>
-              
+
            <div class="col s4">
               <p><label><i class=""></i> Name:</label></p>
               <input class="w3-input w3-border active" type="text" name="name" disabled value="<?php echo $_SESSION[name]?>"/>
             </div>
-            
+
             <div class="col s4">
               <p><label><i class=""></i> Region:</label></p>
               <input class="w3-input w3-border active" type="text" name="region" disabled value="<?php echo $_SESSION[region]?>"/>
@@ -70,18 +70,18 @@
 
       <div class="row">
         <div class="center-align">
-          <input class="waves-effect waves-light btn light-blue" type="submit" name ="submit" value = "edit"/> 
+          <input class="waves-effect waves-light btn light-blue" type="submit" name ="submit" value = "edit"/>
         </div>
       </div>
-  
+
   </form>
   <?php
-    if (isset($_POST['submit'])) { 
+    if (isset($_POST['submit'])) {
               header("location: edit_profile.php");
     }
     ?>
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
-  <script type="text/javascript" src="js/edit_pet.js"></script>  
+  <script type="text/javascript" src="js/edit_pet.js"></script>
 </body>
 </html>

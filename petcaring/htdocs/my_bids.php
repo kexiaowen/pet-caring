@@ -29,7 +29,7 @@
 
       // If the user has not submitted any bids
       if (pg_num_rows($result) == 0) {
-        echo "<h5 class=\"center\">You have not submitted any bids.</h5>";
+        echo "<h5 class=\"center grey-text light\">You have not submitted any bids.</h5>";
       }
 
       // Create  while loop and loop through result set

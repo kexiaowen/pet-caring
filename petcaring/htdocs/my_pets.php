@@ -33,7 +33,7 @@
       $result = pg_query($db, $sql);
 
       if (pg_num_rows($result) == 0) {
-        echo "<h5 class=\"center\">You have not added any pets! How about adding one now?</h5>";
+        echo "<h5 class=\"center light grey-text\">You have not added any pets! How about adding one now?</h5>";
       }
 
       // Create  while loop and loop through result set
