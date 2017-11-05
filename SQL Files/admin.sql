@@ -1,1 +1,1 @@
-INSERT INTO admin (user_name, user_pass) ('admin','cs2102rocks');
+INSERT INTO admin (user_name, user_pass) VALUES ('admin','cs2102rocks');
