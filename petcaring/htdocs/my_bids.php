@@ -21,11 +21,11 @@
     <h3 class="light-blue-text text-lighten-1 light center">Bids I have submitted</h3>
     <?php
       require_once 'config.php';
-      $sql = "SELECT *
+      $query = "SELECT *
               FROM bid
               WHERE bidder = '$_SESSION[email]'";
 
-      $result = pg_query($db, $sql);
+      $result = pg_query($db, $query);
 
       // If the user has not submitted any bids
       if (pg_num_rows($result) == 0) {
@@ -43,24 +43,36 @@
         $start_date = $row['start_date'];
         $end_date = $row['end_date'];
 
-        $query = "SELECT type
+        $query2 = "SELECT type
                     FROM pet
-                    WHERE owner = '$bidder' AND pet_name = '$pet_name'";
+                    WHERE owner = '$bidder'
+                    AND pet_name = '$pet_name'";
 
-        $result = pg_query($db, $query);
-        $type_of_pet = pg_fetch_assoc($result)['type'];
+        $result2 = pg_query($db, $query2);
+        $type_of_pet = pg_fetch_assoc($result2)['type'];
+
+        $query3 = "SELECT avail.accepted_bid
+                    FROM availability AS avail
+                    WHERE avail.start_date = '$start_date'
+                    AND avail.end_date = '$end_date'
+                    AND avail.caretaker = '$caretaker'";
+        $result3 = pg_query($db, $query3);
+        $avail_status = pg_fetch_assoc($result3)['accepted_bid'];
         $status;
 
         echo "<div class=\"card hoverable\">
           <div class=\"card-content\">
             <div class=\"row\">";
               if ($accepted_bid == 't') {
-                $status = "SUCCESS!";
+                $status = "ACCEPTED!";
                 echo "<span class=\"new badge green left\" data-badge-caption=\"Accepted\"></span>";
-              } else {
+            } else if ($avail_status == 'f') {
                 $status = "PENDING";
-                echo "<span class=\"new badge red left\" data-badge-caption=\"Pending\"></span>";
-              }
+                echo "<span class=\"new badge grey left\" data-badge-caption=\"Pending\"></span>";
+            } else {
+                $status = "REJECTED";
+                echo "<span class=\"new badge red left\" data-badge-caption=\"Rejected\"></span>";
+            }
             echo "
             </div>
             <div class=\"row\">
@@ -93,10 +105,6 @@
                 <p>
                   <span class=\"light-blue-text text-darken-2 text-size light\">Desired caretaker:
                   <span class=\"grey-text text-darken-2 text-size light\">$caretaker
-                </p>
-                <p>
-                  <span class=\"light-blue-text text-darken-2 text-size light\">Bid status:
-                  <span class=\"grey-text text-darken-2 text-size light\">$status
                 </p>
               </div>
             </div>

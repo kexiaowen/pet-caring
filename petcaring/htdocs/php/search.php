@@ -4,8 +4,10 @@
 
   if (isset($_POST['start_date'], $_POST['end_date'], $_POST['type_of_pet'], $_POST['max_bid']) &&
         $_POST['start_date'] !== "" && $_POST['end_date'] !== "" && is_numeric($_POST['max_bid'])) {
-    $formatted_start_date = date_format(date_create($_POST['start_date']), 'Y-m-d');
-    $formatted_end_date = date_format(date_create($_POST['end_date']), 'Y-m-d');
+    $first_format_start = str_replace(',','', $_POST['start_date']);
+    $first_format_end = str_replace(',','', $_POST['end_date']);
+    $formatted_start_date = date('Y-m-d', strtotime($first_format_start));
+    $formatted_end_date = date('Y-m-d', strtotime($first_format_end));
     $query = "SELECT acc.name, acc.email, acc.region, acc.address, avail.start_date, avail.end_date, avail.min_bid, avail.remark
                 FROM account AS acc, availability AS avail
                 WHERE acc.email = avail.caretaker

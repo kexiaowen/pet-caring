@@ -35,6 +35,7 @@ $("#search").submit(function(event) {
 
   // Serialize data in the form
   serializedData = $form.serialize() + '&bidder=' + bidder;
+  console.log("data: " + serializedData);
 
   // Disable the inputs for the duration of the Ajax request.
   // Note: we disable elements AFTER the form data has been serialized.
@@ -60,6 +61,7 @@ var result;
 
 // Creates a new list of person cards according to the search results
 function createNewCards(response) {
+  console.log("response: " + response);
   document.getElementById("card-container").innerHTML = "";
   $(".bid-button").removeClass("disabled");
 
@@ -88,16 +90,15 @@ function createNewCards(response) {
 }
 
 var cardCounter = 0;
-var caretaker, startDate, endDate;
 
 // Creates a single person card according to the given details
 function createNewCard(data) {
   var name = data[0];
-  caretaker = data[1];
+  var caretaker = data[1];
   var region = data[2];
   var address = data[3];
-  startDate = data[4];
-  endDate = data[5];
+  var startDate = data[4];
+  var endDate = data[5];
   var minBid = data[6];
   var remark = data[7];
 
@@ -132,20 +133,29 @@ function createNewCard(data) {
   var petNameAndBid = document.createElement("form");
   petNameAndBid.className = "card-form";
   petNameAndBid.setAttribute("id", "card" + cardCounter);
+  var hiddenCaretaker = createNewInputWithClass("hidden", "", "caretaker");
+  hiddenCaretaker.value = caretaker;
+  var hiddenStartDate = createNewInputWithClass("hidden", "", "start_date");
+  hiddenStartDate.value = startDate;
+  var hiddenEndDate = createNewInputWithClass("hidden", "", "end_date");
+  hiddenEndDate.value = endDate;
   var yourPetSection = createNewDivWithClass("col");
   var yourPet = createNewTextNode("Your pet: ");
   yourPet.className = "col s3";
-  var petInput = createNewInputWithClass("col s3 w3-border", "pet_name");
+  var petInput = createNewInputWithClass("text", "col s3 w3-border", "pet_name");
   yourPetSection.appendChild(yourPet);
   yourPetSection.appendChild(petInput);
   var yourBidSection = createNewDivWithClass("col");
   var yourBidStatement = createNewTextNode("Your bid: ");
   yourBidStatement.className = "col s3";
   var dollarSign = createNewIconWithClass("fa fa-dollar");
-  var bidInput = createNewInputWithClass("col s3 w3-border", "submitted_bid");
+  var bidInput = createNewInputWithClass("text", "col s3 w3-border", "submitted_bid");
   yourBidStatement.appendChild(dollarSign);
   yourBidSection.appendChild(yourBidStatement);
   yourBidSection.appendChild(bidInput);
+  petNameAndBid.appendChild(hiddenCaretaker);
+  petNameAndBid.appendChild(hiddenStartDate);
+  petNameAndBid.appendChild(hiddenEndDate);
   petNameAndBid.appendChild(yourPetSection);
   petNameAndBid.appendChild(yourBidSection);
   cardRightCol.appendChild(bidNode);
@@ -195,11 +205,11 @@ function createNewIconWithClass(className) {
   return node;
 }
 
-// Creates a new input field (text) with the given class
-function createNewInputWithClass(className, name) {
+// Creates a new input field of given type with the given class
+function createNewInputWithClass(type, className, name) {
   var node = document.createElement("input");
   node.className = className;
-  node.setAttribute("type", "text");
+  node.setAttribute("type", type);
   node.setAttribute("name", name);
   return node;
 }
@@ -226,8 +236,7 @@ $("#card-container").on('submit', function(event) {
   $input = $form.children("input");
 
   // Serialize data in the form and combine it with the search data
-  var serialized = $form.serialize() + '&caretaker=' + caretaker
-    + '&start_date=' + startDate + '&end_date=' + endDate + '&bidder=' + bidder;
+  var serialized = $form.serialize() + '&bidder=' + bidder;
   console.log(serialized);
 
   // Disable the inputs for the duration of the Ajax request.
@@ -262,6 +271,8 @@ function disableAddBidButtons(response) {
   if (response == "Invalid pet name.") {
     Materialize.toast('Please submit a valid pet name!', 2500, 'red darken-1 rounded');
     return ;
+  } else {
+    Materialize.toast('Bid added!', 2500, 'green lighten-1 rounded');
   }
 
   $(".bid-button").addClass("disabled");

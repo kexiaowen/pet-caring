@@ -43,6 +43,12 @@
               WHERE caretaker = 'jeffereyW@gmail.com'
               ORDER BY start_date DESC";*/
       $result = pg_query($db, $sql);
+
+      // If the user has not submitted any bids
+      if (pg_num_rows($result) == 0) {
+        echo "<h5 class=\"center\">You have not added any availbilities.</h5>";
+      }
+
       // Create  while loop and loop through result set
       while($row = pg_fetch_assoc($result)){
         $start_date    = $row['start_date'];
