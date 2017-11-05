@@ -27,17 +27,24 @@
       color: #4caf50;
       opacity: 0.6;
     }
+    #add-avail {
+        position: fixed;
+        bottom: 8px;
+        right: 8px;
+    }
   </style>
 </head>
 <body>
+  <a class="waves-effect waves-light btn light-blue" href="add_availability.php" id="add-avail">Add availability</a>
   <div class="container">
     <h3 class="light-blue-text text-lighten-1 light center">Manage my availabilities</h3>
+
     <?php
       require_once 'config.php';
       $sql = "SELECT *
               FROM availability
               WHERE caretaker = '$_SESSION[email]'
-              ORDER BY start_date DESC";
+              ORDER BY start_date ASC";
       /*$sql = "SELECT *
               FROM availability
               WHERE caretaker = 'jeffereyW@gmail.com'
@@ -90,7 +97,7 @@
               if ($bidder_num == 0 && $acceptedBid == 'f') {
                 echo "
                   <a href=\"delete_availability.php?start_date=$start_date & end_date=$end_date & caretaker=$caretaker\"><i class=\"material-icons right delete\">delete</i></a>
-                  <a href=\"edit_availability.php?start_date=$start_date & end_date=$end_date & caretaker=$caretaker\"><i class=\"material-icons right edit\">mode_edit</i></a>";
+                  <a href=\"edit_availability.php?start_date=$start_date & end_date=$end_date & caretaker=$caretaker & min_bid=$min_bid & remark=$remark\"><i class=\"material-icons right edit\">mode_edit</i></a>";
               }
             echo "
             </div>

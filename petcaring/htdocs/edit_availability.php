@@ -115,15 +115,17 @@
                 </div>
                 <div class="col s6">
                   <p><label><i class="fa fa-dollar"></i> Minimum bid:</label></p>
-                  <input class="w3-input w3-border active" type="text" name="min_bid" value="<?php $row['min_bid']?>">
+                  <input class="w3-input w3-border active" type="text" name="min_bid" value="<?php echo "$_GET[min_bid]"; ?>">
                 </div>
                 <!--<div class="col s12">
                   <p><label>Remark:</label></p>
                   <input class="w3-input w3-border" type="text" name="remark" value="<?php //echo $row['remark'];?>">
                 </div>-->
-                <div class="input-field col s12">
-                  <textarea id="remark" type="text" class="materialize-textarea" name="remark" rows="1"></textarea>
-                  <label for="remark" class="active">Remark</label>
+                <div class="col s12">
+                  <p><label>Remark:</label></p>
+                  <input class="w3-input w3-border" type="text" name="remark" value="<?php echo "$_GET[remark]"; ?>">
+                  <!--<textarea id="remark" type="text" class="materialize-textarea" name="remark" rows="1" value="<?php echo "$_GET[remark]"; ?>"></textarea>
+                  <label for="remark" class="active">Remark</label>-->
                 </div>
               </div>
 
@@ -155,7 +157,7 @@
   <script type="text/javascript">
     $( document ).ready(function(){
       Materialize.updateTextFields();
-      $('#remark').val('remark');
+      // $('#remark').val('remark');
       $('#remark').trigger('autoresize');
       $('select').material_select();
       $('select').css('color', 'blue');
