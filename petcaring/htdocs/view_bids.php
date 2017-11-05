@@ -41,6 +41,11 @@
                WHERE start_date = '$_GET[start_date]' AND end_date = '$_GET[end_date]' AND caretaker = '$_SESSION[email]'
                ORDER BY price DESC";
        $result = pg_query($db, $sql);
+
+       if (pg_num_rows($result) == 0) {
+         echo "<h5 class=\"center grey-text light\">There is no bid for this availability at the moment. :( </h5>";
+       }
+
        $counter = 0;
        // Create  while loop and loop through result set
        while($row = pg_fetch_assoc($result)){
