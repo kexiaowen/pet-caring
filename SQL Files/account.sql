@@ -22,5 +22,6 @@ INSERT INTO account VALUES ('Elizabeth Sng','eliSng@gmail.com','zzzzzkshdfns','S
 INSERT INTO account VALUES ('Eric','eric1990@gmail.com','mnxjzsdyas','West','170 Upper Bukit Timah Road, 03-02','588179');
 INSERT INTO account VALUES ('Jordan Lim','jordanLim@gmail.com','zmxjhnjsd','East','514 Chai Chee Lane #06-03','469029');
 INSERT INTO account VALUES ('Joel Chua','joelChua@gmail.com','iueiwuew','West','2 Corporation Road #03-09/11 Corporation Place','618494');
-
-
+INSERT INTO account VALUES ('Amy Chong', 'amychong@hotmail.com', 'simsse11', 'North', '#08-02 Block 852A Woodlands', '531892');
+INSERT INTO account VALUES ('Lee Xin Lei', 'xinlei@hotmail.com', 'josidfhw', 'South', '2 Jalan Jurong Kechill #04-02', '264924');
+INSERT INTO account VALUES ('Xiaowen', 'xiaowen@hotmail.com', 'sdfwefsfd', 'West', '2 Clementi Road #03-17', '123843');
