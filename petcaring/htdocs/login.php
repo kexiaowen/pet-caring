@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html>  
 <head>
   <title>Pet Caring</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -45,10 +45,6 @@
     }
     a{
       color:#fff;
-      text-decoration: none;
-    }
-    a:hover {
-        text-decoration: none;
     }
     img{
       display:block;
@@ -73,18 +69,17 @@
             header("location: index.php");
          }
     }
-    ?>
+    ?>  
   <div>
     <form name="display" action="login.php" method="POST" >
       <b>Login</b>
       <br><br>
       <a>New user?</a>
-      <a href="signup.php" style="color:#42A5F5">Sign up here</a>
+      <a href="signup.php" style="color:#42A5F5;text-decoration: none">Sign up here</a>
       <input type="email" name="email" value="<?php echo $_POST[email]; ?>" placeholder="Email" id="" />
       <input type="password" name="password" value="" placeholder="Password" id="  " />
       <input type="submit" style="background:#42A5F5; color:#fff" name="submit" value = "LOGIN"/>
-      <a href="index.php">Return to home page</a><br>
-      <a href="admin_login.php">Login as Admin</a><br>
+      <a href="index.php" style = "text-decoration: none">Return to home page</a><br>
       <a style="color:#e51c23"><?php echo $err; ?></a>
       <br>
     </form>

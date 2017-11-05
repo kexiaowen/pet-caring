@@ -1,5 +1,5 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html>  
 <head>
   <title>Pet Caring</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -12,6 +12,18 @@
     }
     input{
       width:70%;
+      outline:none;
+      padding:10px 11px;
+      border: 1px #aaa solid;
+      border-radius: 4px;
+      font size:15px;
+      background:#fff;
+      display:block;
+      margin:20px auto;
+    }
+    select{
+      width:77%;
+      height:32px;
       outline:none;
       padding:10px 11px;
       border: 1px #aaa solid;
@@ -47,10 +59,6 @@
     a{
       text-align=left;
       color:#fff;
-      text-decoration: none;
-    }
-    a:hover {
-        text-decoration: none;
     }
     d{
       color:#e51c23;
@@ -80,25 +88,31 @@
           header("location: index.php");
         }
       }}
-    ?>
+    ?>  
     <div>
         <form name="display" action="signup.php" method="POST">
           <b>Sign up</b>
           <br><br>
           <a>Already have an account?</a>
-          <a href="login.php" style="color:#42A5F5">Login here</a>
-          <input type="text" name="email" value="<?php echo $_POST[email]; ?>" placeholder="Email*" id="" />
-          <input type="text" name="name" value="<?php echo $_POST[name]; ?>" placeholder="Name*"/>
-          <input type="password" name="password" placeholder="Password*" />
-          <input type="password" name="password2" placeholder="Enter your password again*" />
-          <input type="text" name="region" value="<?php echo $_POST[region]; ?>" placeholder = "Region*"/>
-          <input type="text" name="address" value="<?php echo $_POST[address]; ?>" placeholder="Address"/>
+          <a href="login.php" style="color:#42A5F5; text-decoration: none">Login here</a>
+          <input type="text" name="email" value="<?php echo $_POST[email]; ?>" placeholder="Email" id="" /> 
+          <input type="text" name="name" value="<?php echo $_POST[name]; ?>" placeholder="Name"/>
+          <input type="password" name="password" placeholder="Password" />
+          <input type="password" name="password2" placeholder="Enter your password again" />
+            
+          <select>
+          <option value="" disabled selected>Region</option>
+          <option value="West">West</option>
+          <option value="East">East</option>
+          <option value="West">North</option>
+          <option value="East">South</option>
+          </select>
+          <input type="text" name="address" value="<?php echo $_POST[address]; ?>" placeholder="Address"/> 
           <input type="text" maxlength="6" name="postal_code" value="<?php echo $_POST[postal_code]; ?>" placeholder= "Postal code"/>
-          <input type="submit" style="background:#42A5F5; color:#fff" name="signup" value = "SIGNUP" />
-          <a href="index.php">Return to home page</a><br>
+          <input type="submit" style="background:#42A5F5; color:#fff" name="signup" value = "SIGNUP" /> 
+          <a href="index.php" style= "text-decoration: none">Return to home page</a><br>
           <a style="color:#e51c23"><?php echo $err; ?></a>
-          </form>
+          </form>  
         </div>
-
 </body>
 </html>
