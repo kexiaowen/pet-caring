@@ -1,0 +1,1 @@
+INSERT INTO admin (user_name, user_pass) ('admin','cs2102rocks');

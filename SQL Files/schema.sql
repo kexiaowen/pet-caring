@@ -16,6 +16,11 @@ CREATE TABLE account (
 	postal_code CHAR(6) NOT NULL
 );
 
+CREATE TABLE admin (
+	user_name VARCHAR(100) PRIMARY KEY,
+	user_pass VARCHAR(200) NOT NULL
+);
+
 CREATE TABLE pet (
 	pet_name VARCHAR(64),
 	type VARCHAR(32) NOT NULL,
