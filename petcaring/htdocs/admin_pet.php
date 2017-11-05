@@ -48,40 +48,40 @@
 
       <div class="col s10 page-content">
         <!-- Teal page content  -->
-        <h3 class="light-blue-text text-darken-4">Account</h3>
+        <h3 class="light-blue-text text-darken-4">Pet</h3>
         <?php
           if (!isset($_POST["create-form"])) {
-            echo "<form name='create-form' action='admin_account.php' method='POST'>
-              <button type='submit' name='create-form' class='btn waves-effect waves-light light-blue darken-4'>Add a new account</button>
+            echo "<form name='create-form' action='admin_pet.php' method='POST'>
+              <button type='submit' name='create-form' class='btn waves-effect waves-light light-blue darken-4'>Add a new pet</button>
             </form>";
           }
          ?>
         <?php
           if(isset($_POST["create-form"])){
-            echo "<form name='create' action='admin_create_account.php' method='POST'>
+            echo "<form name='create' action='admin_create_pet.php' method='POST'>
               <div class='input-field col s6'>
-                <input type='text' name='name' placeholder='Name'>
-                <label for='name'>Name</label>
+                <input type='text' name='pet_name' placeholder='Pet name'>
+                <label for='pet_name'>Pet name</label>
               </div>
               <div class='input-field col s6'>
-                <input type='text' name='email' placeholder='Email'>
-                <label for='email'>Email</label>
+                <input type='text' name='type' placeholder='Type'>
+                <label for='type'>Type</label>
               </div>
               <div class='input-field col s6'>
-                <input type='text' name='password' placeholder='Password'>
-                <label for='password'>Password</label>
+                <input type='text' name='species' placeholder='Species'>
+                <label for='species'>Species</label>
               </div>
               <div class='input-field col s6'>
-                <input type='text' name='region' placeholder='Region'>
-                <label for='region'>Region</label>
+                <input type='text' name='dob' placeholder='Date of birth'>
+                <label for='dob'>Date of birth</label>
               </div>
               <div class='input-field col s6'>
-                <input type='text' name='address' placeholder='Address'>
-                <label for='address'>Address</label>
+                <input type='text' name='size' placeholder='Size'>
+                <label for='size'>Size</label>
               </div>
               <div class='input-field col s6'>
-                <input type='text' name='postal_code' placeholder='Postal code'>
-                <label for='postal_code'>Postal code</label>
+                <input type='text' name='owner' placeholder='Owner'>
+                <label for='owner'>Owner</label>
               </div>
               <button type='submit' name='create' class='btn waves-effect waves-light green'>Submit</button>
             </form>";
@@ -90,12 +90,12 @@
         <table style="width:100%" class="highlight">
           <thead>
             <tr>
-              <th class="light-blue-text text-darken-4">Name</th>
-              <th class="light-blue-text text-darken-4">Email</th>
-              <th class="light-blue-text text-darken-4">Password</th>
-              <th class="light-blue-text text-darken-4">Region</th>
-              <th class="light-blue-text text-darken-4">Address</th>
-              <th class="light-blue-text text-darken-4">Postal code</th>
+              <th class="light-blue-text text-darken-4">Pet name</th>
+              <th class="light-blue-text text-darken-4">Type</th>
+              <th class="light-blue-text text-darken-4">Species</th>
+              <th class="light-blue-text text-darken-4">Date of birth</th>
+              <th class="light-blue-text text-darken-4">Size</th>
+              <th class="light-blue-text text-darken-4">Owner</th>
             </tr>
           </thead>
           <div id="message">
@@ -109,37 +109,37 @@
           <?php
             require_once 'config.php';
             $sql = "SELECT *
-                    FROM account
-                    ORDER BY name ASC";
+                    FROM pet
+                    ORDER BY pet_name ASC";
             $result = pg_query($db, $sql);
             $counter = 0;
             // Create  while loop and loop through result set
             while($row = pg_fetch_assoc($result)){
-              $name    = $row['name'];
-              $email  = $row['email'];
-              $password = $row['password'];
-              $region = $row['region'];
-              $address = $row['address'];
-              $postal_code = $row['postal_code'];
+              $pet_name    = $row['pet_name'];
+              $type  = $row['type'];
+              $species = $row['species'];
+              $dob = $row['dob'];
+              $size = $row['size'];
+              $owner = $row['owner'];
 
               echo "<tr>";
-              	echo "<td align='center'>" .$name . "</td>";
-                echo "<td align='center'>" .$email . "</td>";
-                echo "<td align='center'>" .$password . "</td>";
-                echo "<td align='center'>" .$region . "</td>";
-                echo "<td align='center'>" .$address . "</td>";
-                echo "<td align='center'>" .$postal_code . "</td>";
+                echo "<td align='center'>" .$pet_name . "</td>";
+                echo "<td align='center'>" .$type . "</td>";
+                echo "<td align='center'>" .$species . "</td>";
+                echo "<td align='center'>" .$dob . "</td>";
+                echo "<td align='center'>" .$size . "</td>";
+                echo "<td align='center'>" .$owner . "</td>";
 
                 echo "
                 <div class = 'edit'>
                   <td align='center'>
-                    <form name='edit$counter' action='admin_account.php' method='POST'>
-                      <input type='hidden' name='name' value='$name'>
-                      <input type='hidden' name='email' value='$email'>
-                      <input type='hidden' name='password' value='$password'>
-                      <input type='hidden' name='region' value='$region'>
-                      <input type='hidden' name='address' value='$address'>
-                      <input type='hidden' name='postal_code' value='$postal_code'>
+                    <form name='edit$counter' action='admin_pet.php' method='POST'>
+                      <input type='hidden' name='pet_name' value='$pet_name'>
+                      <input type='hidden' name='type' value='$type'>
+                      <input type='hidden' name='species' value='$species'>
+                      <input type='hidden' name='dob' value='$dob'>
+                      <input type='hidden' name='size' value='$size'>
+                      <input type='hidden' name='owner' value='$owner'>
 
                       <button type='submit' name='edit$counter' class='btn waves-effect waves-light green'>Edit</button>
                     </form>
@@ -147,32 +147,33 @@
                 </div>";
                 if (isset($_POST["edit$counter"])) {
                   echo "
-                    <form name='edit' action='admin_update_account.php' method='POST'>
+                    <form name='edit' action='admin_update_pet.php' method='POST'>
                       <div class='input-field col s6'>
-                        <input type='text' name='name' value='$name' placeholder='Name'>
-                        <label for='name'>Name</label>
+                        <input type='text' name='new_pet_name' value='$pet_name' placeholder='Pet name'>
+                        <label for='new_pet_name'>Pet name</label>
                       </div>
                       <div class='input-field col s6'>
-                        <input type='text' name='new_email' value='$email' placeholder='Email'>
-                        <label for='new_email'>Email</label>
+                        <input type='text' name='type' value='$type' placeholder='Type'>
+                        <label for='type'>Type</label>
                       </div>
                       <div class='input-field col s6'>
-                        <input type='text' name='password' value='$password' placeholder='Password'>
-                        <label for='password'>Password</label>
+                        <input type='text' name='species' value='$species' placeholder='Species'>
+                        <label for='species'>Species</label>
                       </div>
                       <div class='input-field col s6'>
-                        <input type='text' name='region' value='$region' placeholder='Region'>
-                        <label for='region'>Region</label>
+                        <input type='text' name='dob' value='$dob' placeholder='Date of birth'>
+                        <label for='dob'>Date of birth</label>
                       </div>
                       <div class='input-field col s6'>
-                        <input type='text' name='address' value='$address' placeholder='Address'>
-                        <label for='address'>Address</label>
+                        <input type='text' name='size' value='$size' placeholder='Size'>
+                        <label for='size'>Size</label>
                       </div>
                       <div class='input-field col s6'>
-                        <input type='text' name='postal_code' value='$postal_code' placeholder='Postal code'>
-                        <label for='postal_code'>Postal code</label>
+                        <input type='text' name='new_owner' value='$owner' placeholder='Owner'>
+                        <label for='new_owner'>Owner</label>
                       </div>
-                      <input type='hidden' name='email' value='$email'>
+                      <input type='hidden' name='pet_name' value='$pet_name'>
+                      <input type='hidden' name='owner' value='$owner'>
                       <button type='submit' name='edit' class='btn waves-effect waves-light green'>Submit</button>
                     </form>
                   ";
@@ -180,8 +181,9 @@
 
                 echo "
                   <td align='center'>
-                    <form name='delete' method='POST' action='admin_delete_account.php'>
-                      <input type='hidden' name='email' value='$email'>
+                    <form name='delete' method='POST' action='admin_delete_pet.php'>
+                      <input type='hidden' name='pet_name' value='$pet_name'>
+                      <input type='hidden' name='owner' value='$owner'>
                       <button type='submit' name='delete' class='btn waves-effect waves-light red'>Delete</button>
                     </form>
                   </td>
@@ -192,7 +194,6 @@
                 $counter = $counter + 1;
             }
           ?>
-
         </table>
       </div>
 
@@ -202,7 +203,6 @@
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
   <script type="text/javascript">
-
         $(document).ready(function() {
           Materialize.updateTextFields();
         });

@@ -7,6 +7,6 @@
     if($result) {
       header("Location: admin_account.php?msg=Successfully added!");
     } else {
-      header("Location: admin_account.php?msg=Failed to add this record!pg_last_error($db)");
+      header("Location: admin_account.php?msg=Failed to add this record!");
     }
   }
