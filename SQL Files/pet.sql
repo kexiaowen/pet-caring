@@ -12,7 +12,7 @@
 *   - (Photo) implement this later
 */
 
-INSERT INTO pet VALUES ('Charlie', 'dog', 'pitbull', '2003-12-3', 'small', 'xujun@gmail.com');
+INSERT INTO pet VALUES ('Charlie', 'dog', 'pitbull', '2003-12-3', 'small', 'stephane@gmail.com');
 INSERT INTO pet VALUES ('Rocko', 'dog', 'beagle', '2005-5-4', 'medium', 'fredKwok@gmail.com');
 INSERT INTO pet VALUES ('Tails', 'dog', 'collie', '2007-8-1', 'large', 'JessicaYong@gmail.com');
 INSERT INTO pet VALUES ('Pippen', 'dog', 'golden retriever', '2000-10-3', 'large', 'mindyZhou@gmail.com');
@@ -22,7 +22,7 @@ INSERT INTO pet VALUES ('Beauty', 'dog', 'beagle', '2014-05-12', 'small', 'xinle
 
 INSERT INTO pet VALUES ('Dime', 'cat', 'ragdoll', '2013-7-5', 'giant', 'jeffereyW@gmail.com');
 INSERT INTO pet VALUES ('Shadow', 'cat', 'balinese', '2013-7-5', 'small', 'donaldChua@gmail.com');
-INSERT INTO pet VALUES ('Scarface', 'cat', 'bobcat', '2002-2-2', 'medium', 'xujun@gmail.com');
+INSERT INTO pet VALUES ('Scarface', 'cat', 'bobcat', '2002-2-2', 'medium', 'stephane@gmail.com');
 INSERT INTO pet VALUES ('Bean', 'cat', 'maine coon', '2005-1-15', 'giant', 'huanhui@gmail.com');
 
 INSERT INTO pet VALUES ('Prada', 'rabbit', 'mini lop', '2012-7-20', 'small', 'gerardYu@gmail.com');

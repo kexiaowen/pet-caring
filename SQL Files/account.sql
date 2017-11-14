@@ -2,7 +2,7 @@
 * Inserts data for users
 */
 
-INSERT INTO account VALUES ('Xu Jun','xujun@gmail.com','xu08nsd','West','22 College Avenue East','138595');
+INSERT INTO account VALUES ('Stephane Bressan','stephane@gmail.com','cs2102aplus','West','6 College Avenue East','138614');
 INSERT INTO account VALUES ('Huan Hui','huanhui@gmail.com','hhh8isudis','West','12 Kent Ridge Drive','119243');
 INSERT INTO account VALUES ('Vera','vera@gmail.com','skdjskc','East','Blk 135 Jurong East St 13 #04-341','600135');
 INSERT INTO account VALUES ('Jian Yao','jianyao@gmail.com','kjdsfsdsd','South','50 COLLYER QUAY, #07-00','049321');

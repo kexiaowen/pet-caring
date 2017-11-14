@@ -2,27 +2,27 @@
 * Inserts availability data
 */
 
-INSERT INTO availability (start_date, end_date, type_of_pet, caretaker, min_bid, accepted_bid)  VALUES ('2017-09-18', '2017-09-20', 'cat', 'xujun@gmail.com', 10, FALSE);
-INSERT INTO availability VALUES ('2017-09-22', '2017-09-25', 'cat', 'xujun@gmail.com', 8, FALSE);
-INSERT INTO availability VALUES ('2017-10-02', '2017-10-05', 'cat', 'xujun@gmail.com', 10, TRUE, 'I love taking care of cats!');
-INSERT INTO availability VALUES ('2017-10-11', '2017-10-13', 'dog', 'xujun@gmail.com', 10, FALSE);
-INSERT INTO availability VALUES ('2017-10-17', '2017-10-18', 'dog', 'xujun@gmail.com', 12, FALSE, 'I am really experienced in taking care of dogs!');
-INSERT INTO availability VALUES ('2017-10-21', '2017-10-24', 'dog', 'xujun@gmail.com', 7, TRUE);
-INSERT INTO availability VALUES ('2017-10-26', '2017-10-30', 'cat', 'xujun@gmail.com', 13, FALSE);
-INSERT INTO availability VALUES ('2017-11-03', '2017-11-08', 'dog', 'xujun@gmail.com', 10, FALSE);
-INSERT INTO availability VALUES ('2017-11-11', '2017-11-14', 'dog', 'xujun@gmail.com', 6, FALSE, 'I am really experienced in taking care of dogs!');
-INSERT INTO availability VALUES ('2017-11-21', '2017-11-24', 'dog', 'xujun@gmail.com', 10, FALSE);
-INSERT INTO availability VALUES ('2017-12-02', '2017-12-07', 'hamster', 'xujun@gmail.com', 20, FALSE, 'Hamsters are my favourite pets! I will try my best to take care of them well!');
-INSERT INTO availability VALUES ('2017-12-12', '2017-12-16', 'hamster', 'xujun@gmail.com', 18, FALSE);
-INSERT INTO availability VALUES ('2017-12-19', '2017-12-21', 'hamster', 'xujun@gmail.com', 10, FALSE);
-INSERT INTO availability VALUES ('2017-12-25', '2017-12-29', 'hamster', 'xujun@gmail.com', 15, FALSE);
-INSERT INTO availability VALUES ('2018-01-02', '2018-01-05', 'rabbit', 'xujun@gmail.com', 10, FALSE, 'Rabbits are my favourite pets as well! I will try my best to take care of them well!');
-INSERT INTO availability VALUES ('2018-01-07', '2018-01-11', 'hamster', 'xujun@gmail.com', 10, FALSE);
-INSERT INTO availability VALUES ('2018-01-15', '2018-01-18', 'bird', 'xujun@gmail.com', 10, FALSE, 'I will definitely take good care of your bird!');
-INSERT INTO availability VALUES ('2018-01-20', '2018-01-27', 'bird', 'xujun@gmail.com', 8, FALSE);
-INSERT INTO availability VALUES ('2018-01-30', '2018-02-04', 'rabbit', 'xujun@gmail.com', 8, FALSE);
-INSERT INTO availability VALUES ('2018-02-11', '2018-02-14', 'bird', 'xujun@gmail.com', 8, FALSE, 'I will definitely take good care of your bird!');
-INSERT INTO availability VALUES ('2018-02-16', '2018-02-20', 'bird', 'xujun@gmail.com', 9, TRUE);
+INSERT INTO availability (start_date, end_date, type_of_pet, caretaker, min_bid, accepted_bid)  VALUES ('2017-09-18', '2017-09-20', 'cat', 'stephane@gmail.com', 10, FALSE);
+INSERT INTO availability VALUES ('2017-09-22', '2017-09-25', 'cat', 'stephane@gmail.com', 8, FALSE);
+INSERT INTO availability VALUES ('2017-10-02', '2017-10-05', 'cat', 'stephane@gmail.com', 10, TRUE, 'I love taking care of cats!');
+INSERT INTO availability VALUES ('2017-10-11', '2017-10-13', 'dog', 'stephane@gmail.com', 10, FALSE);
+INSERT INTO availability VALUES ('2017-10-17', '2017-10-18', 'dog', 'stephane@gmail.com', 12, FALSE, 'I am really experienced in taking care of dogs!');
+INSERT INTO availability VALUES ('2017-10-21', '2017-10-24', 'dog', 'stephane@gmail.com', 7, TRUE);
+INSERT INTO availability VALUES ('2017-10-26', '2017-10-30', 'cat', 'stephane@gmail.com', 13, FALSE);
+INSERT INTO availability VALUES ('2017-11-03', '2017-11-08', 'dog', 'stephane@gmail.com', 10, FALSE);
+INSERT INTO availability VALUES ('2017-11-11', '2017-11-14', 'dog', 'stephane@gmail.com', 6, FALSE, 'I am really experienced in taking care of dogs!');
+INSERT INTO availability VALUES ('2017-11-21', '2017-11-24', 'dog', 'stephane@gmail.com', 10, FALSE);
+INSERT INTO availability VALUES ('2017-12-02', '2017-12-07', 'hamster', 'stephane@gmail.com', 20, FALSE, 'Hamsters are my favourite pets! I will try my best to take care of them well!');
+INSERT INTO availability VALUES ('2017-12-12', '2017-12-16', 'hamster', 'stephane@gmail.com', 18, FALSE);
+INSERT INTO availability VALUES ('2017-12-19', '2017-12-21', 'hamster', 'stephane@gmail.com', 10, FALSE);
+INSERT INTO availability VALUES ('2017-12-25', '2017-12-29', 'hamster', 'stephane@gmail.com', 15, FALSE);
+INSERT INTO availability VALUES ('2018-01-02', '2018-01-05', 'rabbit', 'stephane@gmail.com', 10, FALSE, 'Rabbits are my favourite pets as well! I will try my best to take care of them well!');
+INSERT INTO availability VALUES ('2018-01-07', '2018-01-11', 'hamster', 'stephane@gmail.com', 10, FALSE);
+INSERT INTO availability VALUES ('2018-01-15', '2018-01-18', 'bird', 'stephane@gmail.com', 10, FALSE, 'I will definitely take good care of your bird!');
+INSERT INTO availability VALUES ('2018-01-20', '2018-01-27', 'bird', 'stephane@gmail.com', 8, FALSE);
+INSERT INTO availability VALUES ('2018-01-30', '2018-02-04', 'rabbit', 'stephane@gmail.com', 8, FALSE);
+INSERT INTO availability VALUES ('2018-02-11', '2018-02-14', 'bird', 'stephane@gmail.com', 8, FALSE, 'I will definitely take good care of your bird!');
+INSERT INTO availability VALUES ('2018-02-16', '2018-02-20', 'bird', 'stephane@gmail.com', 9, TRUE);
 
 INSERT INTO availability VALUES ('2017-09-22', '2017-09-24', 'cat', 'huanhui@gmail.com', 10, FALSE, 'I personally own a cat named Bean so I am experienced in taking care of cats!');
 INSERT INTO availability VALUES ('2017-09-27', '2017-10-06', 'cat', 'huanhui@gmail.com', 10, FALSE);
@@ -169,4 +169,3 @@ INSERT INTO availability VALUES ('2018-01-27', '2018-02-15', 'rabbit', 'JessicaY
 
 
 INSERT INTO availability VALUES ('2017-10-02', '2017-10-10', 'dog', 'chenYong@gmail.com', 10, FALSE);
-
