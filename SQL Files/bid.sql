@@ -35,8 +35,13 @@ INSERT INTO bid VALUES ('22', false, 'donaldChua@gmail.com', 'stephane@gmail.com
 INSERT INTO bid VALUES ('31', false, 'aliciaOng@gmail.com', 'stephane@gmail.com', 'Postgresql', '2017-12-12', '2017-12-16');
 INSERT INTO bid VALUES ('19', false, 'xiaowen@hotmail.com', 'stephane@gmail.com', 'Light', '2017-12-12', '2017-12-16');
 
-/*INSERT INTO availability VALUES ('2018-01-07', '2018-01-11', 'hamster', 'stephane@gmail.com', 10, FALSE);*/
-INSERT INTO bid VALUES ('22', false, 'donaldChua@gmail.com', 'stephane@gmail.com', 'Dinky', '2018-01-07', '2018-01-11');
+/*INSERT INTO availability VALUES ('2017-12-19', '2017-12-21', 'hamster', 'stephane@gmail.com', 10, FALSE);*/
+INSERT INTO bid VALUES ('22', false, 'donaldChua@gmail.com', 'stephane@gmail.com', 'Dinky', '2017-12-19', '2017-12-21');
+INSERT INTO bid VALUES ('31', false, 'aliciaOng@gmail.com', 'stephane@gmail.com', 'Postgresql', '2017-12-19', '2017-12-21');
+
+
+/*INSERT INTO availability VALUES ('2018-01-07', '2018-01-11', 'hamster', 'stephane@gmail.com', 10, TRUE);*/
+INSERT INTO bid VALUES ('22', true, 'donaldChua@gmail.com', 'stephane@gmail.com', 'Dinky', '2018-01-07', '2018-01-11');
 INSERT INTO bid VALUES ('31', false, 'aliciaOng@gmail.com', 'stephane@gmail.com', 'Postgresql', '2018-01-07', '2018-01-11');
 INSERT INTO bid VALUES ('19', false, 'xiaowen@hotmail.com', 'stephane@gmail.com', 'Light', '2018-01-07', '2018-01-11');
 

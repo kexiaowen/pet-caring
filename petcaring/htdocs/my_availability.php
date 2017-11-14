@@ -74,12 +74,12 @@
         $bidder_num = $bid_row['total'];
         $max_bid = 0;
         if ($bidder_num != 0) {
-          $max_bid_query = "SELECT price
+          $max_bid_query = "SELECT b1.price
                             FROM bid as b1
-                            WHERE NOT EXISTS (
+                            WHERE b1.caretaker = '$_SESSION[email]' AND b1.start_date = '$start_date' AND b1.end_date = '$end_date' AND NOT EXISTS (
                               SELECT *
                               FROM bid as b2
-                              WHERE b1.price < b2.price
+                              WHERE b1.price < b2.price AND b2.caretaker = '$_SESSION[email]' AND b2.start_date = '$start_date' AND b2.end_date = '$end_date'
                             )";
           $max_bid_res = pg_query($db, $max_bid_query);
           $max_bid_row = pg_fetch_assoc($max_bid_res);
@@ -135,7 +135,7 @@
                 </div>
                 <div class=\"row\">
                   <span class=\"grey-text text-darken-2\">Current maximum bid is</span>
-                  <span class=\"light-blue-text text-darken-2\">$$max_bid/hr</span>
+                  <span class=\"light-blue-text text-darken-2\">$ $max_bid/hr</span>
                 </div>
                 <div class=\"row\">
                   <a class=\"waves-effect waves-light light-blue btn\" href=\"view_bids.php?start_date=$start_date & end_date=$end_date & type_of_pet=$type_of_pet\">View all bids</a>

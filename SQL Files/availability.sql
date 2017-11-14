@@ -17,7 +17,7 @@ INSERT INTO availability VALUES ('2017-12-12', '2017-12-16', 'hamster', 'stephan
 INSERT INTO availability VALUES ('2017-12-19', '2017-12-21', 'hamster', 'stephane@gmail.com', 10, FALSE);
 INSERT INTO availability VALUES ('2017-12-25', '2017-12-29', 'hamster', 'stephane@gmail.com', 15, FALSE);
 INSERT INTO availability VALUES ('2018-01-02', '2018-01-05', 'rabbit', 'stephane@gmail.com', 10, FALSE, 'Rabbits are my favourite pets as well! I will try my best to take care of them well!');
-INSERT INTO availability VALUES ('2018-01-07', '2018-01-11', 'hamster', 'stephane@gmail.com', 10, FALSE);
+INSERT INTO availability VALUES ('2018-01-07', '2018-01-11', 'hamster', 'stephane@gmail.com', 10, TRUE);
 INSERT INTO availability VALUES ('2018-01-15', '2018-01-18', 'bird', 'stephane@gmail.com', 10, FALSE, 'I will definitely take good care of your bird!');
 INSERT INTO availability VALUES ('2018-01-20', '2018-01-27', 'bird', 'stephane@gmail.com', 8, FALSE);
 INSERT INTO availability VALUES ('2018-01-30', '2018-02-04', 'rabbit', 'stephane@gmail.com', 8, FALSE);
